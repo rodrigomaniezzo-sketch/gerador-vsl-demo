@@ -40,3 +40,15 @@ Serviram apenas como entrada — os resultados não são publicados aqui, porque
 ## Créditos de tipografia
 
 Anton e Inter, ambas sob SIL Open Font License 1.1, embutidas nos arquivos.
+
+## Atualização — kit gráfico de biblioteca
+
+Os ícones passaram a vir da **Lucide** (licença ISC, 1.865 ícones), embutidos como
+sprite no próprio arquivo. O gerador não desenha mais SVG: referencia por `<use>`.
+
+Motivo medido: gerando por conta própria, os 38 SVG da página tinham **mediana de
+252 bytes** — primitivas sem forma. Selo de garantia e divisor de onda continuam
+desenhados à mão, porque não existem em biblioteca de ícones.
+
+Tipografia: **Anton** e **Inter**, ambas SIL Open Font License 1.1, embutidas em
+base64. Os arquivos continuam abrindo sem rede.
