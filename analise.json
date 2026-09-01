@@ -86,5 +86,49 @@
     "texto_botao": "Clique agora no botão",
     "acao": "Fazer a inscrição no Destrave e começar hoje mesmo."
   },
-  "tom": "Direto, empático, encorajador e voltado para adultos frustrados com métodos tradicionais."
+  "tom": "Direto, empático, encorajador e voltado para adultos frustrados com métodos tradicionais.",
+  "perfis": [
+    {
+      "chave": "travamento",
+      "rotulo": "Travado na fala",
+      "dor": "Travar na hora de falar inglês mesmo após anos de estudo.",
+      "eyebrow": "Você entende inglês, mas trava quando precisa falar?",
+      "reconhecimento": "Voce respondeu que travar na hora de falar é o seu principal desafio."
+    },
+    {
+      "chave": "vergonha",
+      "rotulo": "Vergonha de falar",
+      "dor": "Sentir vergonha, desconforto e frustração por não conseguir se expressar.",
+      "eyebrow": "Falar inglês te deixa desconfortável e frustrado?",
+      "reconhecimento": "Voce respondeu que vergonha e frustração aparecem quando tenta se expressar."
+    },
+    {
+      "chave": "traducao",
+      "rotulo": "Pensa demais",
+      "dor": "Depender de tradução mental e esquecer tudo sob pressão.",
+      "eyebrow": "Você monta frases na cabeça, mas trava na hora H?",
+      "reconhecimento": "Voce respondeu que depende de tradução mental e isso te faz esquecer tudo sob pressão."
+    },
+    {
+      "chave": "evasivo",
+      "rotulo": "Evita situações",
+      "dor": "Evitar reuniões, viagens, entrevistas ou conversas por insegurança.",
+      "eyebrow": "Você foge de situações em inglês por insegurança?",
+      "reconhecimento": "Voce respondeu que evita reuniões, viagens, entrevistas ou conversas para não se expor."
+    },
+    {
+      "chave": "desacredita",
+      "rotulo": "Sem confiança",
+      "dor": "Acreditar que não leva jeito, que passou da idade ou que tem bloqueio.",
+      "eyebrow": "Você sente que talvez não leve jeito para falar inglês?",
+      "reconhecimento": "Voce respondeu que acredita não levar jeito, ter passado da idade ou ter um bloqueio."
+    },
+    {
+      "chave": "comparacao",
+      "rotulo": "Se compara demais",
+      "dor": "Perder confiança ao se comparar com colegas que falam com mais facilidade.",
+      "eyebrow": "Ver outras pessoas falando inglês te faz perder a confiança?",
+      "reconhecimento": "Voce respondeu que se comparar com colegas mais fluentes faz sua confiança cair."
+    }
+  ]
 }

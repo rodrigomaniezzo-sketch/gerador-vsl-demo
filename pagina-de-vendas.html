@@ -7,46 +7,68 @@
 </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Destrave</title>
+<title>Destrave — Fale inglês com naturalidade</title>
 <style>
 :root{
   --papel:#FFFFFF; --tinta:#111111; --faixa:#111111; --realce:#FFD400;
-  --acao:#00A651; --acao-escura:#00803F; --urgencia:#E8452C; --borda:#E5E5E5; --suave:#F6F6F4;
+  --acao:#008842; --acao-escura:#006C35; --urgencia:#E8452C; --borda:#E5E5E5; --suave:#F6F6F4;
   --display:'Display', Impact, 'Arial Narrow Bold', sans-serif;
   --corpo:'Corpo', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--papel);color:var(--tinta);overflow-x:hidden}
-body{font-family:var(--corpo);font-size:clamp(1.05rem,2.2vw,1.18rem);line-height:1.62}
-img,svg{max-width:100%}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-:focus-visible{outline:3px solid var(--realce);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important;scroll-behavior:auto !important}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--corpo);
+  color:var(--tinta);
+  background:var(--papel);
+  overflow-x:hidden;
 }
+img,svg{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,summary{font:inherit}
+:focus-visible{outline:3px solid var(--realce);outline-offset:3px}
 .ic{width:1.5em;height:1.5em;flex:none;vertical-align:-.3em}
 .wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
 .urgencia-topo{
-  background:var(--urgencia);color:#fff;text-align:center;padding:12px 16px;
-  font:700 .92rem var(--corpo);letter-spacing:.04em;text-transform:uppercase
+  background:var(--urgencia);
+  color:#fff;
+  padding:10px 0;
+  text-align:center;
+  font-size:.95rem;
+  font-weight:800;
+  letter-spacing:.02em;
 }
-.hero{background:var(--papel);padding:28px 0 36px}
+.hero{background:var(--papel);padding:26px 0 40px}
 .eyebrow{
-  font:700 .78rem var(--corpo);text-transform:uppercase;letter-spacing:.12em;
-  margin:0 0 14px;color:var(--urgencia)
+  font:700 .78rem/1 var(--corpo);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin:0 0 16px;
 }
+h1,h2,h3{margin:0}
 h1{
-  font-family:var(--display);font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:.98;
-  letter-spacing:-.01em;text-transform:uppercase;margin:0 0 18px;max-width:12ch
+  font-family:var(--display);
+  font-size:clamp(2.4rem,6.5vw,4.6rem);
+  line-height:.98;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  max-width:11ch;
+  margin:0 0 18px;
 }
-h1 .marca{background-size:100% .30em;background-position:0 .74em}
 h2{
-  font-family:var(--display);font-size:clamp(1.8rem,4vw,3rem);
-  line-height:1;letter-spacing:-.01em;text-transform:uppercase;margin:0 0 18px
+  font-family:var(--display);
+  font-size:clamp(1.8rem,4vw,3rem);
+  line-height:1;
+  text-transform:uppercase;
+  margin:0 0 16px;
 }
-p{margin:0 0 14px;max-width:64ch}
-strong{font-weight:800}
+p,li{
+  font-family:var(--corpo);
+  font-size:clamp(1.05rem,2.2vw,1.18rem);
+  line-height:1.62;
+}
+p{max-width:64ch;margin:0 0 16px}
 .marca{
   background-image:linear-gradient(var(--realce),var(--realce));
   background-repeat:no-repeat;
@@ -56,112 +78,254 @@ strong{font-weight:800}
   box-decoration-break:clone;
   -webkit-box-decoration-break:clone;
 }
-.subheadline{font-size:clamp(1.08rem,2.3vw,1.22rem);max-width:64ch}
-.hero-grid{
-  display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start
+h1 .marca{background-size:100% .30em;background-position:0 .74em}
+.subheadline{max-width:62ch;font-weight:400}
+.reconhecimento{
+  margin:10px 0 0;
+  padding:14px 16px;
+  background:var(--suave);
+  border-left:4px solid var(--realce);
+  max-width:64ch;
 }
-.preco-box{
-  border:1px solid var(--borda);padding:18px;background:var(--suave)
+.vsl{
+  margin:28px 0 20px;
+  aspect-ratio:16/9;
+  background:var(--suave);
+  border:2px solid var(--borda);
+  display:grid;
+  place-items:center;
+  border-radius:14px;
 }
-.preco-label{
-  font:700 .78rem var(--corpo);text-transform:uppercase;letter-spacing:.12em;margin:0 0 8px
+.vsl .miolo{
+  text-align:center;
+  color:#666;
+  display:grid;
+  gap:12px;
+  justify-items:center;
+  padding:20px;
 }
-.preco-big{
-  font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);line-height:.95;
-  text-transform:uppercase;margin:0 0 8px
+.vsl .miolo .ic{width:3.6rem;height:3.6rem;stroke-width:2.2}
+.rotulo{
+  font:700 .78rem/1 var(--corpo);
+  text-transform:uppercase;
+  letter-spacing:.12em;
 }
-.preco-parcela{font-weight:800;margin:0 0 14px}
-.video-box,.img-ph{
-  background:var(--suave);border:2px dashed var(--borda);border-radius:12px;
-  display:grid;place-items:center;color:#999;text-align:center
+.cta-bloco{margin-top:18px}
+.botao{
+  display:inline-block;
+  background:var(--acao);
+  color:#fff;
+  font:800 1rem/1 var(--corpo);
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  border-radius:8px;
+  padding:18px 28px;
+  box-shadow:0 5px 0 var(--acao-escura);
+  transition:transform .18s ease, box-shadow .18s ease;
+  text-align:center;
+  min-width:min(100%,360px);
 }
-.video-box{aspect-ratio:16/9;padding:20px;margin:24px 0 18px}
-.video-box .ic,.img-ph .ic{width:3.2rem;height:3.2rem;display:block;margin:0 auto 10px}
-.video-box .label,.img-ph .label{
-  font:700 .78rem var(--corpo);text-transform:uppercase;letter-spacing:.12em;color:#777
+.botao:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--acao-escura)}
+.botao:active{transform:translateY(5px);box-shadow:0 0 0 var(--acao-escura)}
+.reforco{
+  margin:10px 0 0;
+  font-size:.95rem;
+  color:#444;
 }
-.cta-stack{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
-.btn{
-  display:inline-block;background:var(--acao);color:#fff;border-radius:8px;
-  padding:18px 26px;font:800 1rem var(--corpo);text-transform:uppercase;letter-spacing:.02em;
-  box-shadow:0 5px 0 var(--acao-escura);transition:transform .18s ease,box-shadow .18s ease;
-  text-align:center;min-width:min(100%,360px)
-}
-.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--acao-escura)}
-.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--acao-escura)}
-.cta-note{font-size:.96rem;color:#444}
+.sec-suave{background:var(--suave);padding:56px 0}
+.sec-papel{background:var(--papel);padding:56px 0}
+.sec-faixa{background:var(--faixa);color:#fff;padding:56px 0}
+.sec-faixa h2,.sec-faixa h3,.sec-faixa p,.sec-faixa li,.sec-faixa summary{color:inherit}
 .div{display:block;width:100%;height:40px}
-.sec{padding:34px 0}
-.papel{background:var(--papel)}
-.suave{background:var(--suave)}
-.faixa{background:var(--faixa);color:#fff}
-.faixa p,.faixa li,.faixa summary,.faixa .muted{color:#f3f3f3}
-.checklist,.inclui-list,.bonus-list,.passos{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-.checklist li,.inclui-list li,.bonus-list li{
-  display:flex;gap:12px;align-items:flex-start
+.lista{
+  list-style:none;
+  padding:0;
+  margin:24px 0 0;
+  display:grid;
+  gap:14px;
 }
-.checklist .ic,.inclui-list .ic,.bonus-list .ic{margin-top:.12em;color:var(--acao);stroke-width:2.5}
-.passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.lista li{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.lista li .ic{margin-top:.18em}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+  align-items:start;
+}
+.passos{
+  display:grid;
+  gap:16px;
+  margin-top:22px;
+}
 .passo{
-  border:1px solid var(--borda);background:var(--papel);padding:18px
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:16px;
+  align-items:start;
+  padding:18px;
+  border:1px solid var(--borda);
+  background:var(--papel);
+  color:var(--tinta);
 }
-.passo-num{
-  font-family:var(--display);font-size:2rem;line-height:1;color:var(--urgencia);margin:0 0 10px
+.num{
+  font-family:var(--display);
+  font-size:2rem;
+  line-height:1;
+  color:var(--urgencia);
 }
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:24px;
+}
 .card{
-  border:1px solid var(--borda);background:var(--papel);padding:18px;border-radius:0
+  background:var(--papel);
+  color:var(--tinta);
+  border:1px solid var(--borda);
+  padding:20px;
 }
-.card .top{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
-.card .ic{color:var(--acao);stroke-width:2.5}
-.tag{
-  display:inline-block;background:var(--realce);color:var(--tinta);padding:5px 8px;
-  font:800 .78rem var(--corpo);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px
+.card h3{
+  font-family:var(--corpo);
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin:0 0 10px;
 }
-.offer-box{
-  border:1px solid var(--borda);background:var(--papel);padding:22px
+.card p{margin:0;max-width:none}
+.includes{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px 24px;
+  margin-top:22px;
 }
-.old-price{
-  color:var(--urgencia);text-decoration:line-through;font-weight:800;margin:0 0 6px
+.includes .item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
 }
-.now-price{
-  font-family:var(--display);font-size:clamp(2.4rem,7vw,4.8rem);line-height:.92;
-  text-transform:uppercase;margin:0 0 8px
+.bonus-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:22px;
 }
-.parcelamento{font-size:1.05rem;font-weight:800;margin:0 0 18px}
-.garantia{
-  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center
+.bonus{
+  background:var(--papel);
+  color:var(--tinta);
+  border:1px solid var(--borda);
+  padding:20px;
+}
+.badge{
+  display:inline-block;
+  background:var(--realce);
+  color:var(--tinta);
+  font:800 .78rem/1 var(--corpo);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  padding:8px 10px;
+  margin-bottom:12px;
+}
+.oferta-box{
+  border:2px solid var(--realce);
+  padding:28px;
+  background:var(--papel);
+  color:var(--tinta);
+}
+.preco-antigo{
+  color:var(--urgencia);
+  text-decoration:line-through;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.preco-atual{
+  font-family:var(--display);
+  font-size:clamp(2.1rem,5vw,4rem);
+  line-height:.95;
+  text-transform:uppercase;
+  margin:0 0 8px;
+}
+.parcelamento{
+  font-size:1.08rem;
+  font-weight:700;
+  margin-bottom:18px;
 }
 .selo svg{width:165px;height:165px;color:var(--urgencia)}
 .selo-arco{font-family:'Corpo',sans-serif;font-size:15px;font-weight:800;fill:#fff;letter-spacing:.06em}
 .selo-num{font-family:'Display',Impact,sans-serif;font-size:54px;fill:#fff}
 .selo-sub{font-family:'Corpo',sans-serif;font-size:17px;font-weight:800;fill:#fff;letter-spacing:.14em}
-details{
-  border-top:1px solid rgba(255,255,255,.18);
-  padding:16px 0
+.garantia-box{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:24px;
+  align-items:center;
 }
-details:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+details{
+  border-bottom:1px solid rgba(255,255,255,.18);
+  padding:0;
+}
+details:last-child{border-bottom:0}
 summary{
-  cursor:pointer;list-style:none;font-weight:800;padding-right:20px
+  list-style:none;
+  cursor:pointer;
+  padding:18px 0;
+  font-weight:700;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
 }
 summary::-webkit-details-marker{display:none}
-summary::after{
-  content:"+";
-  float:right;
-  font-family:var(--display);
+details p{
+  margin:0 0 18px 36px;
+  max-width:64ch;
+  color:inherit;
 }
-details[open] summary::after{content:"–"}
-.center{text-align:center}
-.muted{color:#555}
-.closer{font-size:clamp(1.15rem,2.4vw,1.35rem);font-weight:800;max-width:30ch;margin:0 auto 18px}
+.placeholder{
+  background:var(--suave);
+  border:2px dashed var(--borda);
+  min-height:260px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:#999;
+  text-align:center;
+  padding:20px;
+}
+.placeholder .ic{width:3rem;height:3rem;stroke-width:2.2}
+.placeholder .rotulo{margin-top:10px;color:#777}
+.fecho{
+  font-size:clamp(1.15rem,2.4vw,1.35rem);
+  font-weight:700;
+  max-width:32ch;
+  margin-bottom:18px;
+}
+[data-perfil="travamento"] [data-dor="travamento"],
+[data-perfil="vergonha"] [data-dor="vergonha"],
+[data-perfil="traducao"] [data-dor="traducao"],
+[data-perfil="evasivo"] [data-dor="evasivo"],
+[data-perfil="desacredita"] [data-dor="desacredita"],
+[data-perfil="comparacao"] [data-dor="comparacao"]{
+  background:rgba(255,212,0,.28);
+  padding:10px 12px;
+  border-radius:6px;
+}
 @media (max-width:900px){
-  .hero-grid,.grid-2,.cards,.passos,.garantia{grid-template-columns:1fr}
+  .grid-2,.cards,.includes,.bonus-grid,.garantia-box{grid-template-columns:1fr}
 }
-@media (max-width:640px){
-  .btn{width:100%;min-width:0}
-  .wrap{width:min(1120px,calc(100% - 24px))}
-  .hero{padding-top:22px}
+@media (max-width:680px){
+  .hero{padding:22px 0 34px}
+  .sec-suave,.sec-papel,.sec-faixa{padding:44px 0}
+  .botao{display:block;width:100%}
+  .oferta-box{padding:22px}
+  details p{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important}
 }
 </style>
 </head>
@@ -176,8 +340,7 @@ details[open] summary::after{content:"–"}
 <div id="demo-bar" role="note">
  <b>DEMONSTRAÇÃO TÉCNICA</b> — página gerada automaticamente por IA a partir de um texto de venda.
  Produto fictício, oferta fictícia, nenhum pagamento é processado.
-</div>
-<!--
+</div><!--
   Icones: Lucide (https://lucide.dev) — ISC License.
   Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2023 as part of
   Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2025.
@@ -227,299 +390,324 @@ details[open] summary::after{content:"–"}
   </symbol>
 
 </defs></svg>
+  <div class="urgencia-topo">
+    <div class="wrap">Comece hoje mesmo.</div>
+  </div>
 
-<div class="urgencia-topo">Comece hoje mesmo.</div>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Para adultos de 30 a 50 anos que já estudaram inglês, entendem o idioma, mas travam na hora de falar</p>
-      <h1>Destrave a fala e <span class="marca">consiga se comunicar com naturalidade em inglês</span></h1>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow" id="eyebrow">Para adultos que já estudaram inglês, entendem o idioma, mas travam na hora de falar</p>
+      <h1>Destrave sua fala em inglês e <span class="marca">consiga se comunicar com naturalidade</span> na vida real</h1>
       <p class="subheadline">Fazer o adulto que já estudou inglês destravar a fala e conseguir se comunicar com naturalidade na vida real, sem depender de tradução mental e sem congelar na hora de falar.</p>
-      <p class="subheadline">Feito para quem tem rotina cheia, trabalho, carreira, empresa ou família, e precisa usar inglês em reuniões, viagens, entrevistas, atendimento e situações profissionais.</p>
+      <p class="reconhecimento" id="reconhecimento" hidden></p>
 
-      <div class="video-box" aria-label="Seu vídeo entra aqui">
-        <div>
+      <div class="vsl" aria-label="Espaço reservado para vídeo">
+        <div class="miolo">
           <svg class="ic" aria-hidden="true"><use href="#ic-play"/></svg>
-          <div class="label">Seu vídeo entra aqui</div>
+          <div class="rotulo">Seu video entra aqui</div>
         </div>
       </div>
 
-      <div class="cta-stack">
-        <a class="btn" href="#oferta">Clique agora no botão</a>
-        <div class="cta-note">Garantia de 7 dias com reembolso.</div>
+      <div class="cta-bloco">
+        <a class="botao" href="#oferta">Clique agora no botão</a>
+        <p class="reforco">Garantia de 7 dias com reembolso.</p>
       </div>
     </div>
+  </section>
 
-    <aside>
-      <div class="preco-box">
-        <p class="preco-label">Quanto custa</p>
-        <p class="preco-big">12x de R$ 49,70</p>
-        <p class="preco-parcela">ou R$ 497 à vista</p>
-        <p>Curso/método online <strong>Destrave</strong> para transformar o inglês que você já conhece em resposta automática na hora da fala.</p>
-      </div>
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)">
+    <use href="#div-onda"></use>
+  </svg>
 
-      <div class="img-ph" style="aspect-ratio:4/5;margin-top:18px" aria-label="Mockup do produto">
+  <section class="sec-suave">
+    <div class="wrap">
+      <div class="grid-2">
         <div>
-          <svg class="ic" aria-hidden="true"><use href="#ic-imagem"/></svg>
-          <div class="label">Mockup do produto</div>
+          <h2>Isso é para você se...</h2>
+          <ul class="lista">
+            <li data-dor="travamento"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Travar na hora de falar inglês mesmo após anos de estudo.</span></li>
+            <li data-dor="vergonha"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Sentir vergonha, desconforto e frustração por não conseguir se expressar.</span></li>
+            <li data-dor="traducao"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Depender de tradução mental e esquecer tudo sob pressão.</span></li>
+            <li data-dor="evasivo"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Evitar reuniões, viagens, entrevistas ou conversas por insegurança.</span></li>
+            <li data-dor="desacredita"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Acreditar que não leva jeito, que passou da idade ou que tem bloqueio.</span></li>
+            <li data-dor="comparacao"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Perder confiança ao se comparar com colegas que falam com mais facilidade.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2>O que você quer de verdade</h2>
+          <ul class="lista">
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span><strong>Falar inglês com naturalidade</strong> e sem montar frase na cabeça.</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Participar de reuniões sem medo de ser chamado.</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Viajar sem depender do Google Tradutor para tudo.</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Atender clientes estrangeiros e fazer entrevistas com segurança.</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Responder rapidamente em conversas reais do trabalho e do dia a dia.</span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Ser entendido sem precisar ser perfeito e ganhar confiança ao falar.</span></li>
+          </ul>
         </div>
       </div>
-    </aside>
-  </div>
-</section>
+    </div>
+  </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)">
-  <use href="#div-onda"></use>
-</svg>
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel)">
+    <use href="#div-onda"></use>
+  </svg>
 
-<section class="sec suave">
-  <div class="wrap">
-    <h2>Isso é para você se...</h2>
-    <ul class="checklist">
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Trava na hora de falar inglês mesmo após anos de estudo.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Sente vergonha, desconforto e frustração por não conseguir se expressar.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Depende de tradução mental e esquece tudo sob pressão.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Evita reuniões, viagens, entrevistas ou conversas por insegurança.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Acredita que não leva jeito, que passou da idade ou que tem bloqueio.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span>Perde confiança ao se comparar com colegas que falam com mais facilidade.</span></li>
-    </ul>
-  </div>
-</section>
+  <section class="sec-papel">
+    <div class="wrap">
+      <h2>O método que faz seu inglês virar resposta na hora</h2>
+      <p><strong>Ponte de fala / processo de ativação oral guiada.</strong> Treina o cérebro a passar do pensamento em português para a resposta em inglês de forma mais direta, usando blocos prontos de comunicação, padrões de resposta, gatilhos de sentença, estruturas de alta frequência e prática de saída verbal em contextos de pressão controlada.</p>
+      <p><span class="marca">O diferencial não é estudar mais.</span> É transformar o inglês que você já conhece em resposta automática na hora da fala.</p>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec papel">
-  <div class="wrap">
-    <h2>O que você quer de verdade</h2>
-    <div class="grid-2">
-      <div>
-        <p><strong>Você não quer estudar mais conteúdo.</strong> Você quer usar o inglês que já aprendeu de um jeito que funcione quando precisa falar.</p>
-        <p><span class="marca">Falar inglês com naturalidade e sem montar frase na cabeça.</span></p>
-        <p>Participar de reuniões sem medo de ser chamado.</p>
-      </div>
-      <div>
-        <p>Viajar sem depender do Google Tradutor para tudo.</p>
-        <p>Atender clientes estrangeiros e fazer entrevistas com segurança.</p>
-        <p><strong>Responder rapidamente em conversas reais do trabalho e do dia a dia</strong> e ser entendido sem precisar ser perfeito.</p>
+      <div class="passos">
+        <div class="passo">
+          <div class="num">01</div>
+          <div>
+            <p><strong>Você ativa estruturas úteis de alta frequência.</strong></p>
+            <p>Em vez de decorar regra solta, começa por blocos prontos de comunicação e padrões de resposta que aparecem na vida real.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="num">02</div>
+          <div>
+            <p><strong>Você reduz a tradução mental.</strong></p>
+            <p>O treino guiado encurta o caminho entre o que você pensa e o que consegue dizer, sem depender de montar frase palavra por palavra.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <div class="num">03</div>
+          <div>
+            <p><strong>Você pratica saída verbal sob pressão controlada.</strong></p>
+            <p>Isso prepara seu cérebro para responder em reuniões, viagens, entrevistas, atendimento e conversas profissionais com mais rapidez.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
-  <use href="#div-onda"></use>
-</svg>
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
+    <use href="#div-onda"></use>
+  </svg>
 
-<section class="sec faixa">
-  <div class="wrap">
-    <h2>Como o Destrave faz você sair do entendimento para a fala</h2>
-    <p><strong>Ponte de fala / processo de ativação oral guiada.</strong> Em vez de mandar você estudar mais regras, o método treina o cérebro a passar do pensamento em português para a resposta em inglês de forma mais direta.</p>
-    <p>Isso acontece com blocos prontos de comunicação, padrões de resposta, gatilhos de sentença, estruturas de alta frequência e prática de saída verbal em contextos de pressão controlada.</p>
-    <p><span class="marca">A diferença é simples:</span> não é sobre traduzir ou decorar. É sobre transformar o inglês que você já conhece em resposta automática na hora da fala.</p>
-
-    <ul class="passos" style="margin-top:20px">
-      <li class="passo">
-        <p class="passo-num">01</p>
-        <p><strong>Ativação do que você já sabe</strong></p>
-        <p>Você acessa estruturas de alta frequência e blocos prontos de comunicação para parar de começar do zero toda vez que precisa falar.</p>
-      </li>
-      <li class="passo">
-        <p class="passo-num">02</p>
-        <p><strong>Resposta guiada sob pressão controlada</strong></p>
-        <p>O treino coloca você em situações em que precisa responder, mas de um jeito progressivo e organizado para desenvolver velocidade e segurança.</p>
-      </li>
-      <li class="passo">
-        <p class="passo-num">03</p>
-        <p><strong>Automatização da fala útil</strong></p>
-        <p>Com repetição inteligente e prática contextual, o inglês sai com mais clareza sem depender da tradução mental o tempo todo.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave);transform:scaleY(-1)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec suave">
-  <div class="wrap">
-    <h2>O benefício não é aprender mais. É finalmente conseguir falar.</h2>
-    <div class="cards">
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-subindo"/></svg><strong>Fala real</strong></div>
-        <p>Transformar conhecimento acumulado em fala real.</p>
-      </article>
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg><strong>Menos tradução mental</strong></div>
-        <p>Parar de depender da tradução mental o tempo todo.</p>
-      </article>
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-raio"/></svg><strong>Mais rapidez</strong></div>
-        <p>Responder com mais rapidez, segurança e clareza.</p>
-      </article>
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><strong>Contextos reais</strong></div>
-        <p>Treinar situações reais de trabalho, viagem, reunião e networking.</p>
-      </article>
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-relogio"/></svg><strong>Cabe na rotina</strong></div>
-        <p>Estudar em aulas curtas e objetivas que cabem na rotina.</p>
-      </article>
-      <article class="card">
-        <div class="top"><svg class="ic" aria-hidden="true"><use href="#ic-foguete"/></svg><strong>Confiança prática</strong></div>
-        <p>Ganhar confiança a partir da prática de fala, sem exigir perfeição.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec papel">
-  <div class="wrap">
-    <h2>O que você recebe para destravar de forma prática</h2>
-    <ul class="inclui-list">
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-livro"/></svg><span>Aulas curtas e objetivas com foco em fala, escuta ativa e resposta rápida.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg><span>Treinamento guiado para parar de depender de tradução mental.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-conversa"/></svg><span>Prática com situações reais do dia a dia profissional.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg><span>Revisão inteligente para fixação do conteúdo.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>Formato progressivo que respeita o nível e a agenda do aluno.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-presente"/></svg><span>Pacote extra de frases de sobrevivência para reuniões, viagens e apresentações.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg><span>Guia de treino de 21 dias para criar consistência.</span></li>
-      <li><svg class="ic" aria-hidden="true"><use href="#ic-joia"/></svg><span>Módulo de pronúncia funcional e destravador de pensamento rápido.</span></li>
-    </ul>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec suave">
-  <div class="wrap">
-    <h2>Você ainda leva estes bônus para acelerar a sua prática</h2>
-    <div class="cards">
-      <article class="card">
-        <div class="tag">Bônus</div>
-        <p><strong>Pacote extra de frases de sobrevivência</strong></p>
-        <p>Para reuniões, viagens e apresentações.</p>
-      </article>
-      <article class="card">
-        <div class="tag">Bônus</div>
-        <p><strong>Guia de treino de 21 dias</strong></p>
-        <p>Para criar consistência sem depender de motivação.</p>
-      </article>
-      <article class="card">
-        <div class="tag">Bônus</div>
-        <p><strong>Módulo focado em pronúncia funcional</strong></p>
-        <p>Para falar com mais clareza no uso real.</p>
-      </article>
-      <article class="card">
-        <div class="tag">Bônus</div>
-        <p><strong>Destravador de pensamento rápido</strong></p>
-        <p>Com exercícios para parar de traduzir mentalmente.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec faixa" id="oferta">
-  <div class="wrap">
-    <h2>Entre hoje no Destrave e comece a falar com mais segurança</h2>
-    <div class="offer-box">
-      <p class="preco-label" style="color:var(--tinta)">Acesso ao curso/método online</p>
-      <p class="now-price" style="color:var(--tinta)">12x de R$ 49,70</p>
-      <p class="parcelamento" style="color:var(--tinta)">ou R$ 497 à vista</p>
-      <p style="color:var(--tinta)">Para adultos que já estudaram inglês, entendem o idioma, mas travam na hora de falar.</p>
-      <div class="cta-stack" style="margin-top:18px">
-        <a class="btn" href="#final">Clique agora no botão</a>
-        <div class="cta-note" style="color:var(--tinta)">Garantia de 7 dias com reembolso.</div>
+  <section class="sec-faixa">
+    <div class="wrap">
+      <h2>Você ganha prática útil, clareza e confiança para falar</h2>
+      <div class="cards">
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-subindo"/></svg> Fala real</h3>
+          <p>Transformar conhecimento acumulado em fala real.</p>
+        </article>
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg> Menos tradução</h3>
+          <p>Parar de depender da tradução mental o tempo todo.</p>
+        </article>
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-raio"/></svg> Resposta rápida</h3>
+          <p>Responder com mais rapidez, segurança e clareza.</p>
+        </article>
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-pessoas"/></svg> Contextos reais</h3>
+          <p>Treinar situações reais de trabalho, viagem, reunião e networking.</p>
+        </article>
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-relogio"/></svg> Cabe na rotina</h3>
+          <p>Estudar em aulas curtas e objetivas que cabem na rotina.</p>
+        </article>
+        <article class="card">
+          <h3><svg class="ic" aria-hidden="true"><use href="#ic-foguete"/></svg> Confiança prática</h3>
+          <p>Ganhar confiança a partir da prática de fala, sem exigir perfeição.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel);transform:scaleY(-1)">
-  <use href="#div-onda"></use>
-</svg>
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave);transform:scaleY(-1)">
+    <use href="#div-onda"></use>
+  </svg>
 
-<section class="sec papel">
-  <div class="wrap">
-    <div class="garantia">
-      <div class="selo">
-        <svg viewBox="0 0 200 200" role="img" aria-label="Garantia de 7 dias">
-          <use href="#ic-selo"></use>
-          <text class="selo-arco"><textPath href="#anel-selo" startOffset="50%" text-anchor="middle" textLength="168" lengthAdjust="spacingAndGlyphs">GARANTIA INCONDICIONAL</textPath></text>
-          <text class="selo-num" x="100" y="118" text-anchor="middle">7</text>
-          <text class="selo-sub" x="100" y="138" text-anchor="middle">DIAS</text>
-        </svg>
-      </div>
-      <div>
-        <h2>Seu risco é zero para começar</h2>
-        <p><strong>Garantia de 7 dias com reembolso.</strong></p>
-        <p>Se o método não fizer sentido para você, existe uma condição clara para entrar sem se sentir preso. Isso reduz o risco enquanto você testa uma forma diferente de treinar a fala.</p>
+  <section class="sec-suave">
+    <div class="wrap">
+      <div class="grid-2">
+        <div>
+          <h2>O que você recebe no Destrave</h2>
+          <p><strong>Curso/método online</strong> para adultos que já estudaram inglês e precisam reconectar esse conhecimento à fala.</p>
+          <div class="includes">
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-livro"/></svg><p>Aulas curtas e objetivas com foco em fala, escuta ativa e resposta rápida.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg><p>Treinamento guiado para parar de depender de tradução mental.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-conversa"/></svg><p>Prática com situações reais do dia a dia profissional.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg><p>Revisão inteligente para fixação do conteúdo.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><p>Formato progressivo que respeita o nível e a agenda do aluno.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-presente"/></svg><p>Pacote extra de frases de sobrevivência para reuniões, viagens e apresentações.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg><p>Guia de treino de 21 dias para criar consistência.</p></div>
+            <div class="item"><svg class="ic" aria-hidden="true"><use href="#ic-raio"/></svg><p>Módulo de pronúncia funcional e destravador de pensamento rápido.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="placeholder" aria-label="Mockup do produto">
+            <div>
+              <svg class="ic" aria-hidden="true"><use href="#ic-imagem"/></svg>
+              <div class="rotulo">Mockup do produto</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
-  <use href="#div-onda"></use>
-</svg>
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel)">
+    <use href="#div-onda"></use>
+  </svg>
 
-<section class="sec faixa">
-  <div class="wrap">
-    <h2>Perguntas que costumam travar a decisão</h2>
-
-    <details>
-      <summary>Já ouvi isso antes e já investi em outros métodos sem resultado.</summary>
-      <p>O problema pode não ser falta de esforço, mas sim o formato errado de aprendizado. O Destrave muda a engenharia do aprendizado para treinar a fala de verdade.</p>
-    </details>
-
-    <details>
-      <summary>Sou muito velho para aprender a falar inglês.</summary>
-      <p>Adultos aprendem de forma diferente, com lógica, aplicação prática, autonomia e resultado rápido. O método foi criado especificamente para adultos.</p>
-    </details>
-
-    <details>
-      <summary>E se eu não tiver tempo?</summary>
-      <p>O método foi organizado para encaixar na rotina, com aulas curtas e estudo com intenção, sem precisar de horas por dia.</p>
-    </details>
-
-    <details>
-      <summary>E se eu não tiver base suficiente?</summary>
-      <p>Se a pessoa já estudou inglês antes, a base existe. O método reconecta esse conhecimento à fala. Não é indicado para absoluto iniciante.</p>
-    </details>
-
-    <details>
-      <summary>E se eu tiver vergonha de passar ridículo ao tentar falar?</summary>
-      <p>Continuar evitando custa mais caro para a carreira e para as oportunidades do que encarar um processo pensado para trabalhar essa trava.</p>
-    </details>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)">
-  <use href="#div-onda"></use>
-</svg>
-
-<section class="sec suave center" id="final">
-  <div class="wrap">
-    <p class="closer">Se você já estudou inglês, mas continua travando na hora de falar, o próximo passo é treinar do jeito certo.</p>
-    <div class="cta-stack" style="align-items:center">
-      <a class="btn" href="#final">Clique agora no botão</a>
-      <div class="cta-note">Fazer a inscrição no Destrave e começar hoje mesmo.</div>
+  <section class="sec-papel">
+    <div class="wrap">
+      <h2>Você ainda leva estes bônus</h2>
+      <div class="bonus-grid">
+        <article class="bonus">
+          <span class="badge">Bônus</span>
+          <p>Pacote extra de frases de sobrevivência para reuniões, viagens e apresentações.</p>
+        </article>
+        <article class="bonus">
+          <span class="badge">Bônus</span>
+          <p>Guia de treino de 21 dias para criar consistência sem depender de motivação.</p>
+        </article>
+        <article class="bonus">
+          <span class="badge">Bônus</span>
+          <p>Módulo focado em pronúncia funcional.</p>
+        </article>
+        <article class="bonus">
+          <span class="badge">Bônus</span>
+          <p>Destravador de pensamento rápido com exercícios para parar de traduzir mentalmente.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
+    <use href="#div-onda"></use>
+  </svg>
+
+  <section class="sec-faixa" id="oferta">
+    <div class="wrap">
+      <h2>Entre no Destrave e comece hoje mesmo</h2>
+      <div class="oferta-box">
+        <p class="preco-atual">12 parcelas de R$ 49,70</p>
+        <p class="parcelamento">ou R$ 497 à vista</p>
+        <p>Se você já estudou inglês, mas ainda trava na hora de falar, este é o momento de transformar conhecimento parado em comunicação real.</p>
+        <div class="cta-bloco">
+          <a class="botao" href="#final">Clique agora no botão</a>
+          <p class="reforco">Garantia de 7 dias com reembolso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave);transform:scaleY(-1)">
+    <use href="#div-onda"></use>
+  </svg>
+
+  <section class="sec-suave">
+    <div class="wrap">
+      <div class="garantia-box">
+        <div class="selo">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Garantia de 7 dias">
+            <use href="#ic-selo"></use>
+            <text class="selo-arco"><textPath href="#anel-selo" startOffset="50%" text-anchor="middle" textLength="168" lengthAdjust="spacingAndGlyphs">GARANTIA INCONDICIONAL</textPath></text>
+            <text class="selo-num" x="100" y="118" text-anchor="middle">7</text>
+            <text class="selo-sub" x="100" y="138" text-anchor="middle">DIAS</text>
+          </svg>
+        </div>
+        <div>
+          <h2>Seu risco é zero para começar</h2>
+          <p><strong>Garantia de 7 dias com reembolso.</strong> Você entra, conhece o método e avalia se o Destrave faz sentido para o seu momento.</p>
+          <p>Sem depender de promessa vazia. Se não fizer sentido para você, a garantia reduz o risco de testar uma nova forma de aprender.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
+    <use href="#div-onda"></use>
+  </svg>
+
+  <section class="sec-faixa">
+    <div class="wrap">
+      <h2>As perguntas que passam pela sua cabeça antes de entrar</h2>
+
+      <details>
+        <summary><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>“Já ouvi isso antes e já investi em outros métodos sem resultado.”</span></summary>
+        <p>O problema pode não ser falta de esforço, mas sim o formato errado de aprendizado. O Destrave muda a engenharia do aprendizado para treinar a fala de verdade.</p>
+      </details>
+
+      <details>
+        <summary><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>“Sou muito velho para aprender a falar inglês?”</span></summary>
+        <p>Adultos aprendem de forma diferente, com lógica, aplicação prática, autonomia e resultado rápido. O método foi criado especificamente para adultos.</p>
+      </details>
+
+      <details>
+        <summary><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>“E se eu não tiver tempo?”</span></summary>
+        <p>O método foi organizado para encaixar na rotina, com aulas curtas e estudo com intenção, sem precisar de horas por dia.</p>
+      </details>
+
+      <details>
+        <summary><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>“E se eu não tiver base suficiente?”</span></summary>
+        <p>Se a pessoa já estudou inglês antes, a base existe. O método reconecta esse conhecimento à fala. Não é indicado para absoluto iniciante.</p>
+      </details>
+
+      <details>
+        <summary><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>“E se eu tiver vergonha de passar ridículo ao tentar falar?”</span></summary>
+        <p>Continuar evitando custa mais caro para a carreira e para as oportunidades do que encarar um processo pensado para trabalhar essa trava.</p>
+      </details>
+    </div>
+  </section>
+
+  <svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel);transform:scaleY(-1)">
+    <use href="#div-onda"></use>
+  </svg>
+
+  <section class="sec-papel" id="final">
+    <div class="wrap">
+      <p class="fecho">Se você já entende inglês, mas ainda trava para falar, o próximo passo é começar do jeito certo.</p>
+      <div class="cta-bloco">
+        <a class="botao" href="#">Clique agora no botão</a>
+        <p class="reforco">Fazer a inscrição no Destrave e começar hoje mesmo.</p>
+      </div>
+    </div>
+  </section>
+
+<script>
+const p = new URLSearchParams(location.search).get('perfil');
+const perfis = {
+  "travamento":{
+    eyebrow:"Você entende inglês, mas trava quando precisa falar?",
+    reconhecimento:"Voce respondeu que travar na hora de falar é o seu principal desafio."
+  },
+  "vergonha":{
+    eyebrow:"Falar inglês te deixa desconfortável e frustrado?",
+    reconhecimento:"Voce respondeu que vergonha e frustração aparecem quando tenta se expressar."
+  },
+  "traducao":{
+    eyebrow:"Você monta frases na cabeça, mas trava na hora H?",
+    reconhecimento:"Voce respondeu que depende de tradução mental e isso te faz esquecer tudo sob pressão."
+  },
+  "evasivo":{
+    eyebrow:"Você foge de situações em inglês por insegurança?",
+    reconhecimento:"Voce respondeu que evita reuniões, viagens, entrevistas ou conversas para não se expor."
+  },
+  "desacredita":{
+    eyebrow:"Você sente que talvez não leve jeito para falar inglês?",
+    reconhecimento:"Voce respondeu que acredita não levar jeito, ter passado da idade ou ter um bloqueio."
+  },
+  "comparacao":{
+    eyebrow:"Ver outras pessoas falando inglês te faz perder a confiança?",
+    reconhecimento:"Voce respondeu que se comparar com colegas mais fluentes faz sua confiança cair."
+  }
+};
+if (p && perfis[p]) {
+  document.documentElement.setAttribute('data-perfil', p);
+  document.getElementById('eyebrow').textContent = perfis[p].eyebrow;
+  const r = document.getElementById('reconhecimento');
+  r.textContent = perfis[p].reconhecimento + " Esta página começa por aí.";
+  r.hidden = false;
+}
+</script>
 </body>
 </html>

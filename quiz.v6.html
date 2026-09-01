@@ -9,310 +9,232 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Quiz Destrave</title>
 <style>
-:root{
-  --papel:#FFFFFF; --tinta:#111111; --faixa:#111111; --realce:#FFD400;
-  --acao:#008842; --acao-escura:#006C35; --urgencia:#E8452C; --borda:#E5E5E5; --suave:#F6F6F4;
-  --display:'Display', Impact, 'Arial Narrow Bold', sans-serif;
-  --corpo:'Corpo', system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--papel);color:var(--tinta)}
-body{font-family:var(--corpo);line-height:1.5}
-img,svg{max-width:100%}
-button,input,select,textarea{font:inherit}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--realce);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){
-  *{transition:none!important;scroll-behavior:auto!important}
-}
+  :root{
+    --papel:#FFFFFF; --tinta:#111111; --faixa:#111111; --realce:#FFD400;
+    --acao:#00A651; --acao-escura:#00803F; --urgencia:#E8452C; --borda:#E5E5E5; --suave:#F6F6F4;
+    --display:'Display', Impact, 'Arial Narrow Bold', sans-serif;
+    --corpo:'Corpo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
 
-.ic{width:1.5em;height:1.5em;flex:none;vertical-align:-.3em}
-.div{display:block;width:100%;height:40px}
-.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
-.secao{padding:clamp(28px,5vw,64px) 0}
-.papel{background:var(--papel);color:var(--tinta)}
-.suave{background:var(--suave);color:var(--tinta)}
-.faixa{background:var(--faixa);color:#fff}
-.faixa h1,.faixa h2,.faixa h3,.faixa p,.faixa li,.faixa small,.faixa strong,.faixa .muted,.faixa .kicker{color:inherit}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--papel);color:var(--tinta)}
+  body{font-family:var(--corpo);overflow-x:hidden}
+  svg{display:block}
+  .ic{width:1.5em;height:1.5em;flex:none;vertical-align:-.3em}
+  a,button{font:inherit}
+  button{cursor:pointer}
+  :focus-visible{outline:3px solid var(--realce);outline-offset:3px}
 
-.kicker{
-  font-family:var(--corpo);
-  font-weight:700;
-  font-size:.78rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin:0 0 14px;
-}
-h1{
-  margin:0 0 16px;
-  font-family:var(--display);
-  font-size:clamp(2.4rem,6.5vw,4.6rem);
-  line-height:.98;
-  letter-spacing:-.01em;
-  text-transform:uppercase;
-}
-h2{
-  margin:0 0 16px;
-  font-family:var(--display);
-  font-size:clamp(1.8rem,4vw,3rem);
-  line-height:1;
-  text-transform:uppercase;
-}
-p,li{
-  font-family:var(--corpo);
-  font-weight:400;
-  font-size:clamp(1.05rem,2.2vw,1.18rem);
-  line-height:1.62;
-}
-p{max-width:64ch;margin:0 0 16px}
-.muted{opacity:.8}
+  .marca{
+    background-image:linear-gradient(var(--realce),var(--realce));
+    background-repeat:no-repeat;
+    background-size:100% .38em;
+    background-position:0 .82em;
+    padding:0 .08em;
+    box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;
+  }
+  h1 .marca{background-size:100% .30em;background-position:0 .74em}
 
-.marca{
-  background-image:linear-gradient(var(--realce),var(--realce));
-  background-repeat:no-repeat;
-  background-size:100% .38em;
-  background-position:0 .82em;
-  padding:0 .08em;
-  box-decoration-break:clone;
-  -webkit-box-decoration-break:clone;
-}
-h1 .marca{background-size:100% .30em;background-position:0 .74em}
+  .wrap{width:min(100%,1120px);margin:0 auto;padding:0 20px}
+  .sec{padding:28px 0}
+  .hero{background:var(--papel)}
+  .suave{background:var(--suave)}
+  .faixa{background:var(--faixa);color:#fff}
+  .div{display:block;width:100%;height:40px}
 
-.btn,.btn-sec{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.65em;
-  min-height:56px;
-  padding:16px 22px;
-  border-radius:8px;
-  border:2px solid transparent;
-  text-decoration:none;
-  cursor:pointer;
-  transition:transform .14s ease, box-shadow .14s ease, background-color .14s ease, border-color .14s ease, opacity .14s ease;
-  font-family:var(--corpo);
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.02em;
-}
-.btn{
-  background:var(--acao);
-  color:#fff;
-  box-shadow:0 5px 0 var(--acao-escura);
-}
-.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--acao-escura)}
-.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--acao-escura)}
-.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:0 5px 0 var(--acao-escura)}
-.btn-sec{
-  background:transparent;
-  color:inherit;
-  border-color:var(--borda);
-  box-shadow:none;
-}
-.btn-sec:hover{transform:translateY(1px)}
-.btn-sec:active{transform:translateY(2px)}
+  h1{
+    font-family:var(--display);
+    font-size:clamp(2.4rem,6.5vw,4.6rem);
+    line-height:.98;
+    letter-spacing:-.01em;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+  h2{
+    font-family:var(--display);
+    font-size:clamp(1.8rem,4vw,3rem);
+    line-height:1;
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+  p,li{
+    font-family:var(--corpo);
+    font-weight:400;
+    font-size:clamp(1.05rem,2.2vw,1.18rem);
+    line-height:1.62;
+  }
+  p{max-width:64ch;margin:0}
+  .rotulo{
+    font-family:var(--corpo);
+    font-weight:700;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    margin:0 0 12px;
+  }
 
-.hero{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:clamp(24px,4vw,48px);
-  align-items:center;
-}
-.placeholder{
-  min-height:280px;
-  border:2px dashed var(--borda);
-  background:var(--suave);
-  border-radius:16px;
-  display:grid;
-  place-items:center;
-  padding:24px;
-  color:#999;
-  text-align:center;
-}
-.placeholder .ic{width:72px;height:72px;stroke-width:2.2}
-.placeholder strong{
-  display:block;
-  margin-top:12px;
-  color:#777;
-  font-family:var(--corpo);
-  font-size:.9rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
+  .topline{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    margin-bottom:14px;color:var(--acao)
+  }
+  .topline .ic{stroke-width:2.5}
 
-.info-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin:18px 0 26px;
-}
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:.55em;
-  padding:10px 14px;
-  border:1px solid var(--borda);
-  border-radius:999px;
-  background:var(--papel);
-  color:var(--tinta);
-  font-weight:700;
-  font-size:.95rem;
-}
-.faixa .pill{
-  background:rgba(255,255,255,.08);
-  color:inherit;
-  border-color:rgba(255,255,255,.18);
-}
+  .hero-grid{
+    display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
+  }
 
-.quiz-shell{
-  display:grid;
-  gap:22px;
-}
-.progress{
-  background:rgba(17,17,17,.08);
-  border-radius:999px;
-  height:14px;
-  overflow:hidden;
-}
-.faixa .progress{background:rgba(255,255,255,.15)}
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:var(--realce);
-}
-.step-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  align-items:center;
-  font-size:.95rem;
-  font-weight:700;
-}
-.card{
-  background:var(--papel);
-  color:var(--tinta);
-  border:1px solid var(--borda);
-  border-radius:18px;
-  padding:clamp(18px,3vw,30px);
-}
-.faixa .card{background:var(--papel);color:var(--tinta)}
-.q-title{
-  margin:0 0 18px;
-  font-family:var(--display);
-  font-size:clamp(1.7rem,3.6vw,2.7rem);
-  line-height:1.02;
-  text-transform:uppercase;
-}
-.options{
-  display:grid;
-  gap:12px;
-}
-.option{
-  width:100%;
-  text-align:left;
-  border:2px solid var(--borda);
-  background:var(--papel);
-  color:var(--tinta);
-  border-radius:14px;
-  padding:16px 16px;
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  cursor:pointer;
-  transition:border-color .14s ease, transform .14s ease, background-color .14s ease;
-}
-.option:hover{transform:translateY(-1px);border-color:var(--tinta)}
-.option[aria-pressed="true"]{
-  border-color:var(--acao);
-  background:#F2FBF6;
-}
-.option .ic{color:var(--acao);stroke-width:2.5}
-.option-text{
-  font-size:1rem;
-  line-height:1.45;
-  font-weight:600;
-}
-.nav{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.nav .btn,.nav .btn-sec{min-width:150px}
-.screen{display:none}
-.screen.active{display:block}
+  .media-placeholder{
+    min-height:280px;
+    border:2px dashed var(--borda);
+    background:var(--suave);
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:20px;
+    color:#999;
+  }
+  .media-placeholder .ic{width:64px;height:64px;margin:0 auto 10px}
+  .media-placeholder strong{
+    display:block;
+    font-family:var(--corpo);
+    font-size:.9rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#777;
+  }
 
-.grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-.lista{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:grid;
-  gap:12px;
-}
-.lista li{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-}
-.lista .ic{color:var(--acao);stroke-width:2.5;margin-top:.15em}
-.result-box{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:24px;
-  align-items:start;
-}
-.result-highlight{
-  border-left:6px solid var(--realce);
-  padding-left:16px;
-}
-.result-name{
-  margin:0 0 10px;
-  font-family:var(--display);
-  font-size:clamp(2rem,4.4vw,3.2rem);
-  line-height:1;
-  text-transform:uppercase;
-}
-.footnote{
-  font-size:.95rem;
-  line-height:1.5;
-  opacity:.8;
-}
-.cta-wrap{margin-top:22px}
-.cta-wrap .btn{width:100%}
+  .quiz-shell{
+    border:1px solid var(--borda);
+    border-radius:16px;
+    background:var(--papel);
+    overflow:hidden;
+  }
+  .progress{
+    height:12px;background:#ecece8;position:relative
+  }
+  .progress > span{
+    position:absolute;inset:0 auto 0 0;width:16.666%;
+    background:var(--acao);
+  }
+  .quiz-body{padding:22px}
+  .step{display:none}
+  .step.active{display:block}
+  .q-meta{
+    display:flex;justify-content:space-between;gap:12px;align-items:center;
+    margin-bottom:14px
+  }
+  .q-num{
+    font-family:var(--corpo);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em
+  }
+  .q-title{
+    font-family:var(--display);
+    font-size:clamp(1.6rem,3.4vw,2.4rem);
+    line-height:1;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
 
-.selo svg{width:165px;height:165px;color:var(--urgencia)}
-.selo-arco{font-family:'Corpo',sans-serif;font-size:15px;font-weight:800;fill:#fff;letter-spacing:.06em}
-.selo-num{font-family:'Display',Impact,sans-serif;font-size:54px;fill:#fff}
-.selo-sub{font-family:'Corpo',sans-serif;font-size:17px;font-weight:800;fill:#fff;letter-spacing:.14em}
+  .options{display:grid;gap:12px}
+  .option{
+    width:100%;
+    text-align:left;
+    border:2px solid var(--borda);
+    background:var(--papel);
+    color:var(--tinta);
+    border-radius:12px;
+    padding:16px 16px;
+    display:flex;gap:12px;align-items:flex-start;
+    transition:border-color .15s ease, transform .15s ease, background-color .15s ease;
+  }
+  .option .ic{color:var(--acao);margin-top:2px}
+  .option span{
+    font-family:var(--corpo);
+    font-size:clamp(1rem,2vw,1.08rem);
+    line-height:1.45;
+  }
+  .option[aria-pressed="true"]{
+    border-color:var(--acao);
+    background:#f1fbf6;
+  }
 
-@media (max-width:860px){
-  .hero,.result-box,.grid-2{grid-template-columns:1fr}
-}
-@media (max-width:640px){
-  .wrap{width:min(100% - 20px,1120px)}
-  .btn,.btn-sec{width:100%}
-  .nav{flex-direction:column-reverse}
-}
+  .nav{
+    display:flex;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap
+  }
+
+  .btn, .btn-sec, .btn-link{
+    border:0;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:54px;padding:14px 22px;border-radius:8px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;
+  }
+  .btn{
+    background:var(--acao);color:#fff;
+    box-shadow:0 5px 0 var(--acao-escura);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--acao-escura)}
+  .btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--acao-escura)}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:0 5px 0 var(--acao-escura)}
+  .btn-sec{
+    background:transparent;color:var(--tinta);border:2px solid var(--borda)
+  }
+  .btn-link{
+    background:transparent;color:#fff;border:2px solid rgba(255,255,255,.24)
+  }
+
+  .chips{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px
+  }
+  .chip{
+    border:1px solid var(--borda);border-radius:12px;padding:14px;background:var(--papel)
+  }
+  .chip .line{
+    display:flex;gap:10px;align-items:flex-start
+  }
+  .chip .ic{color:var(--acao)}
+  .chip strong{
+    display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px
+  }
+  .chip p{font-size:1rem;line-height:1.45;max-width:none}
+
+  .result-card{
+    display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+    border:1px solid var(--borda);border-radius:16px;padding:20px;background:var(--papel)
+  }
+  .result-lead{
+    display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;color:var(--acao)
+  }
+  .result-lead .ic{stroke-width:2.5}
+  .result-box p + p{margin-top:12px}
+  .result-actions{margin-top:18px}
+  .result-actions .btn{width:100%}
+
+  .selo svg{width:165px;height:165px;color:var(--urgencia)}
+  .selo-arco{font-family:'Corpo',sans-serif;font-size:15px;font-weight:800;fill:#fff;letter-spacing:.06em}
+  .selo-num{font-family:'Display',Impact,sans-serif;font-size:54px;fill:#fff}
+  .selo-sub{font-family:'Corpo',sans-serif;font-size:17px;font-weight:800;fill:#fff;letter-spacing:.14em}
+
+  .foot-note{
+    display:flex;gap:10px;align-items:flex-start;margin-top:14px
+  }
+  .foot-note .ic{color:var(--acao)}
+  .foot-note p{font-size:1rem;line-height:1.5;max-width:none}
+
+  @media (max-width:860px){
+    .hero-grid,.result-card{grid-template-columns:1fr}
+    .chips{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .quiz-body{padding:18px}
+    .btn,.btn-sec,.btn-link{width:100%}
+    .nav > *{flex:1 1 100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto !important}
+  }
 </style>
 </head>
-<body>
-<style id="selo-demo">
- #demo-bar{position:sticky;top:0;z-index:9999;background:#111;color:#fff;
-  font:600 13px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  padding:9px 16px;text-align:center;border-bottom:3px solid #FFD400}
- #demo-bar b{color:#FFD400}
- @media (max-width:600px){#demo-bar{font-size:12px;padding:8px 12px}}
-</style>
-<div id="demo-bar" role="note">
- <b>DEMONSTRAÇÃO TÉCNICA</b> — página gerada automaticamente por IA a partir de um texto de venda.
- Produto fictício, oferta fictícia, nenhum pagamento é processado.
-</div><!--
+<body><!--
   Icones: Lucide (https://lucide.dev) — ISC License.
   Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2023 as part of
   Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2025.
@@ -363,354 +285,385 @@ h1 .marca{background-size:100% .30em;background-position:0 .74em}
 
 </defs></svg>
 
-<section class="secao papel">
-  <div class="wrap hero">
-    <div>
-      <p class="kicker">Quiz de diagnóstico</p>
-      <h1>Descubra o que <span class="marca">trava sua fala</span> em inglês</h1>
-      <p>Em poucos minutos, você identifica o bloqueio que mais atrapalha sua comunicação e entende qual próximo passo faz sentido para destravar com mais naturalidade.</p>
-      <div class="info-row">
-        <div class="pill"><svg class="ic" aria-hidden="true"><use href="#ic-relogio"/></svg><span>Leva cerca de 2 minutos</span></div>
-        <div class="pill"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg><span>5 perguntas, sem cadastro</span></div>
-      </div>
-      <button class="btn" id="startBtn" type="button">Começar <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg></button>
-    </div>
-    <div class="placeholder" aria-hidden="true">
-      <div>
-        <svg class="ic" aria-hidden="true"><use href="#ic-play"/></svg>
-        <strong>Espaço para vídeo da VSL do quiz</strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)"><use href="#div-onda"/></svg>
-
-<section class="secao suave">
+<section class="sec hero">
   <div class="wrap">
-    <div class="grid-2" style="align-items:start">
+    <div class="hero-grid">
       <div>
-        <p class="kicker">Antes de começar</p>
-        <h2>O que este quiz <span class="marca">vai mostrar</span></h2>
-        <ul class="lista">
-          <li><svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg><span>Se o seu maior bloqueio é travamento, vergonha, tradução mental, evasão, falta de confiança ou comparação.</span></li>
-          <li><svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg><span>Qual padrão mais pesa quando você tenta responder em situações reais de trabalho, viagem ou conversa.</span></li>
-          <li><svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg><span>Qual caminho faz mais sentido para transformar o inglês que você já estudou em fala mais natural.</span></li>
-        </ul>
+        <div class="topline">
+          <svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg>
+          <p class="rotulo">Quiz rapido de diagnostico</p>
+        </div>
+        <h1>Descubra o que <span class="marca">trava sua fala</span> em ingles</h1>
+        <p>Em 5 perguntas, voce identifica o bloqueio principal que impede voce de se comunicar com naturalidade e entende qual caminho faz mais sentido para destravar a fala na vida real.</p>
       </div>
-      <div class="card">
-        <p class="kicker">Importante</p>
-        <p style="margin-bottom:0">O resultado é um diagnóstico, não uma oferta. Você responde, vê seu perfil e segue para entender como funciona o método <span class="marca">Ponte de fala / processo de ativação oral guiada</span>.</p>
+      <div class="media-placeholder" aria-label="Espaco reservado para mockup do quiz">
+        <div>
+          <svg class="ic" aria-hidden="true"><use href="#ic-imagem"/></svg>
+          <strong>Mockup do produto</strong>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)"><use href="#div-onda"/></svg>
+<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--suave)">
+  <use href="#div-onda"></use>
+</svg>
 
-<section class="secao faixa" id="quizArea">
-  <div class="wrap quiz-shell">
-    <div class="step-meta">
-      <span id="stepLabel">Introdução</span>
-      <span id="stepCount">0/5</span>
-    </div>
-    <div class="progress" aria-hidden="true">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <div class="screen active" id="screen-intro">
-      <div class="card">
-        <p class="kicker">Pronto para responder?</p>
-        <h2 class="q-title">Sem cadastro. Só <span class="marca">5 perguntas</span>.</h2>
-        <p>Escolha a alternativa que mais parece com sua realidade hoje. Não existe resposta certa ou errada: a ideia é identificar o bloqueio que aparece com mais frequência quando você precisa falar inglês.</p>
-        <div class="cta-wrap">
-          <button class="btn" type="button" id="startInside">Começar agora <svg class="ic" aria-hidden="true"><use href="#ic-foguete"/></svg></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-q1">
-      <div class="card">
-        <p class="kicker">Pergunta 1</p>
-        <h2 class="q-title">Quando você precisa falar inglês, o que mais acontece?</h2>
-        <div class="options" data-question="0">
-          <button class="option" type="button" data-perfil="travamento" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Eu entendo, mas travo na hora de abrir a boca.</span></button>
-          <button class="option" type="button" data-perfil="vergonha" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Fico desconfortável e com vergonha de me expressar.</span></button>
-          <button class="option" type="button" data-perfil="traducao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Monto a frase em português antes e me perco.</span></button>
-          <button class="option" type="button" data-perfil="evasivo" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Tento evitar a situação sempre que posso.</span></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-q2">
-      <div class="card">
-        <p class="kicker">Pergunta 2</p>
-        <h2 class="q-title">Em situações de pressão, qual padrão te atrapalha mais?</h2>
-        <div class="options" data-question="1">
-          <button class="option" type="button" data-perfil="traducao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Eu esqueço tudo porque tento traduzir rápido demais.</span></button>
-          <button class="option" type="button" data-perfil="travamento" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Mesmo sabendo, minha fala simplesmente não sai.</span></button>
-          <button class="option" type="button" data-perfil="vergonha" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Eu fico tenso por medo de errar na frente dos outros.</span></button>
-          <button class="option" type="button" data-perfil="comparacao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Eu me comparo com quem fala melhor e travo mais ainda.</span></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-q3">
-      <div class="card">
-        <p class="kicker">Pergunta 3</p>
-        <h2 class="q-title">Qual situação você mais tende a evitar em inglês?</h2>
-        <div class="options" data-question="2">
-          <button class="option" type="button" data-perfil="evasivo" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Reuniões, entrevistas, viagens ou conversas inesperadas.</span></button>
-          <button class="option" type="button" data-perfil="vergonha" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Situações em que posso passar vergonha ao falar.</span></button>
-          <button class="option" type="button" data-perfil="comparacao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Ambientes com colegas que falam com mais facilidade.</span></button>
-          <button class="option" type="button" data-perfil="travamento" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Conversas rápidas em que preciso responder na hora.</span></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-q4">
-      <div class="card">
-        <p class="kicker">Pergunta 4</p>
-        <h2 class="q-title">Qual pensamento aparece com mais frequência?</h2>
-        <div class="options" data-question="3">
-          <button class="option" type="button" data-perfil="desacredita" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Talvez eu não leve jeito ou já tenha passado da idade.</span></button>
-          <button class="option" type="button" data-perfil="comparacao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Os outros conseguem com facilidade, comigo é diferente.</span></button>
-          <button class="option" type="button" data-perfil="traducao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Eu sei, mas preciso organizar tudo na cabeça antes.</span></button>
-          <button class="option" type="button" data-perfil="vergonha" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Se eu errar, vai ficar óbvio que meu inglês não é bom.</span></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-q5">
-      <div class="card">
-        <p class="kicker">Pergunta 5</p>
-        <h2 class="q-title">Se você pudesse mudar uma coisa no seu inglês, qual seria?</h2>
-        <div class="options" data-question="4">
-          <button class="option" type="button" data-perfil="travamento" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Conseguir responder na hora, com mais naturalidade.</span></button>
-          <button class="option" type="button" data-perfil="traducao" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Parar de depender de tradução mental para falar.</span></button>
-          <button class="option" type="button" data-perfil="evasivo" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Parar de fugir de reuniões, viagens e conversas em inglês.</span></button>
-          <button class="option" type="button" data-perfil="desacredita" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg><span class="option-text">Recuperar a confiança de que eu consigo aprender.</span></button>
-        </div>
-      </div>
-    </div>
-
-    <div class="screen" id="screen-result">
-      <div class="card">
-        <div class="result-box">
-          <div>
-            <p class="kicker" id="resultEyebrow">Seu perfil</p>
-            <div class="result-highlight">
-              <h2 class="result-name" id="resultTitle">Travado na fala</h2>
-            </div>
-            <p id="resultRecognition">Você respondeu que travar na hora de falar é o seu principal desafio.</p>
-            <p id="resultDiagnosis">Isso costuma acontecer quando existe conhecimento acumulado, mas ele não se transforma em resposta automática na hora da fala. Em vez de faltar capacidade, o que falta é um processo que reconecte o que você já sabe com situações reais de comunicação.</p>
-            <p id="resultMechanism">Existe um caminho para isso: <span class="marca">Ponte de fala / processo de ativação oral guiada</span>. Ele foi pensado para treinar a passagem do pensamento para a resposta em inglês com mais rapidez, menos tradução mental e mais prática de saída verbal.</p>
-            <div class="cta-wrap">
-              <a class="btn" id="finalBtn" href="#" data-demo="1">Ver como funciona <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg></a>
-            </div>
-            <p class="footnote">Seu resultado será levado para a próxima página para manter a continuidade do diagnóstico.</p>
+<section class="sec suave">
+  <div class="wrap">
+    <div class="quiz-shell" aria-live="polite">
+      <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+      <div class="quiz-body">
+        <div class="step active" data-step="0">
+          <p class="rotulo">Antes de comecar</p>
+          <h2>Leva menos de 2 minutos</h2>
+          <p>Voce vai responder 5 perguntas objetivas. Sem cadastro, sem formulario e sem pedir dado pessoal. No final, voce recebe um diagnostico simples e o nome do mecanismo que pode ajudar no proximo passo.</p>
+          <div class="nav" style="margin-top:24px">
+            <button class="btn" type="button" id="startBtn">Comecar <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg></button>
           </div>
-          <div>
-            <div class="placeholder" aria-hidden="true" style="min-height:220px;margin-bottom:18px">
-              <div>
-                <svg class="ic" aria-hidden="true"><use href="#ic-imagem"/></svg>
-                <strong>Mockup do produto</strong>
+        </div>
+
+        <div class="step" data-step="1">
+          <div class="q-meta">
+            <span class="q-num">Pergunta 1 de 5</span>
+          </div>
+          <h3 class="q-title">Quando voce precisa falar ingles, o que mais acontece?</h3>
+          <div class="options">
+            <button class="option" type="button" data-group="trava" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu travo na hora, mesmo sabendo o que queria dizer.</span>
+            </button>
+            <button class="option" type="button" data-group="traducao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu fico montando a frase em portugues antes de falar.</span>
+            </button>
+            <button class="option" type="button" data-group="pressao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu ate sei, mas sob pressao esqueco tudo.</span>
+            </button>
+            <button class="option" type="button" data-group="confianca" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu evito falar por vergonha ou inseguranca.</span>
+            </button>
+          </div>
+          <div class="nav">
+            <button class="btn-sec back" type="button">Voltar</button>
+            <button class="btn next" type="button" disabled>Proxima</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="2">
+          <div class="q-meta">
+            <span class="q-num">Pergunta 2 de 5</span>
+          </div>
+          <h3 class="q-title">Qual situacao mais pesa hoje?</h3>
+          <div class="options">
+            <button class="option" type="button" data-group="pressao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Reunioes ou entrevistas me deixam em branco.</span>
+            </button>
+            <button class="option" type="button" data-group="confianca" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Evito conversas para nao passar vergonha.</span>
+            </button>
+            <button class="option" type="button" data-group="traducao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Demoro demais porque traduzo tudo mentalmente.</span>
+            </button>
+            <button class="option" type="button" data-group="trava" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Tenho conteudo, mas nao consigo colocar pra fora.</span>
+            </button>
+          </div>
+          <div class="nav">
+            <button class="btn-sec back" type="button">Voltar</button>
+            <button class="btn next" type="button" disabled>Proxima</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="3">
+          <div class="q-meta">
+            <span class="q-num">Pergunta 3 de 5</span>
+          </div>
+          <h3 class="q-title">O que voce mais gostaria de conseguir primeiro?</h3>
+          <div class="options">
+            <button class="option" type="button" data-group="trava" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Falar com mais naturalidade sem congelar.</span>
+            </button>
+            <button class="option" type="button" data-group="pressao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Responder rapido em conversas reais do trabalho.</span>
+            </button>
+            <button class="option" type="button" data-group="traducao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Parar de montar frase na cabeca antes de falar.</span>
+            </button>
+            <button class="option" type="button" data-group="confianca" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Ganhar seguranca mesmo sem falar perfeito.</span>
+            </button>
+          </div>
+          <div class="nav">
+            <button class="btn-sec back" type="button">Voltar</button>
+            <button class="btn next" type="button" disabled>Proxima</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="4">
+          <div class="q-meta">
+            <span class="q-num">Pergunta 4 de 5</span>
+          </div>
+          <h3 class="q-title">Quando voce pensa em estudar de novo, qual e sua maior resistencia?</h3>
+          <div class="options">
+            <button class="option" type="button" data-group="confianca" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>A sensacao de que talvez eu nao leve jeito.</span>
+            </button>
+            <button class="option" type="button" data-group="trava" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Ja estudei muito e continuo travando.</span>
+            </button>
+            <button class="option" type="button" data-group="traducao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Parece que eu so acumulo regra e continuo traduzindo.</span>
+            </button>
+            <button class="option" type="button" data-group="pressao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Na hora H eu desmonto e nao acesso o que sei.</span>
+            </button>
+          </div>
+          <div class="nav">
+            <button class="btn-sec back" type="button">Voltar</button>
+            <button class="btn next" type="button" disabled>Proxima</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="5">
+          <div class="q-meta">
+            <span class="q-num">Pergunta 5 de 5</span>
+          </div>
+          <h3 class="q-title">Qual frase mais parece com seu momento?</h3>
+          <div class="options">
+            <button class="option" type="button" data-group="pressao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu entendo, mas nao consigo responder com rapidez.</span>
+            </button>
+            <button class="option" type="button" data-group="traducao" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Minha cabeca vai para o portugues antes do ingles.</span>
+            </button>
+            <button class="option" type="button" data-group="confianca" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu me comparo e isso derruba minha confianca.</span>
+            </button>
+            <button class="option" type="button" data-group="trava" data-value="1" aria-pressed="false">
+              <svg class="ic" aria-hidden="true"><use href="#ic-check-circulo"/></svg>
+              <span>Eu sei mais do que consigo mostrar quando abro a boca.</span>
+            </button>
+          </div>
+          <div class="nav">
+            <button class="btn-sec back" type="button">Voltar</button>
+            <button class="btn next" type="button" disabled>Ver resultado</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="6">
+          <p class="rotulo">Seu diagnostico</p>
+          <div class="result-card">
+            <div class="result-box">
+              <div class="result-lead">
+                <svg class="ic" aria-hidden="true"><use href="#ic-alvo"/></svg>
+                <strong id="perfilNome" style="font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Seu perfil</strong>
+              </div>
+              <h2 id="perfilTitulo">Seu bloqueio e a trava de fala</h2>
+              <p id="perfilTexto1"></p>
+              <p id="perfilTexto2"></p>
+              <div class="foot-note">
+                <svg class="ic" aria-hidden="true"><use href="#ic-cerebro"/></svg>
+                <p id="mecanismoTexto"></p>
+              </div>
+              <div class="result-actions">
+                <a class="btn" id="finalBtn" href="pagina-de-vendas.html">Ver como funciona <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg></a>
               </div>
             </div>
-            <ul class="lista">
-              <li><svg class="ic" aria-hidden="true"><use href="#ic-subindo"/></svg><span>Foco em transformar conhecimento acumulado em fala real.</span></li>
-              <li><svg class="ic" aria-hidden="true"><use href="#ic-relogio"/></svg><span>Aulas curtas e objetivas que cabem na rotina.</span></li>
-              <li><svg class="ic" aria-hidden="true"><use href="#ic-conversa"/></svg><span>Treino com situações reais de trabalho, viagem e dia a dia.</span></li>
-            </ul>
+            <div class="selo">
+              <svg viewBox="0 0 200 200" role="img" aria-label="Diagnostico em 5 perguntas">
+                <use href="#ic-selo"/>
+                <text class="selo-arco"><textPath href="#anel-selo" startOffset="50%" text-anchor="middle" textLength="168" lengthAdjust="spacingAndGlyphs">DIAGNOSTICO DE PERFIL</textPath></text>
+                <text class="selo-num" x="100" y="118" text-anchor="middle">5</text>
+                <text class="selo-sub" x="100" y="138" text-anchor="middle">PERGUNTAS</text>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="nav" id="quizNav">
-      <button class="btn-sec" type="button" id="prevBtn">Voltar</button>
-      <button class="btn" type="button" id="nextBtn" disabled>Próxima <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg></button>
+    <div class="chips" aria-label="Resumo do quiz">
+      <div class="chip">
+        <div class="line">
+          <svg class="ic" aria-hidden="true"><use href="#ic-relogio"/></svg>
+          <div>
+            <strong>O que descobre</strong>
+            <p>Seu bloqueio principal para falar ingles.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chip">
+        <div class="line">
+          <svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg>
+          <div>
+            <strong>Quanto tempo leva</strong>
+            <p>5 perguntas objetivas, em menos de 2 minutos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="chip">
+        <div class="line">
+          <svg class="ic" aria-hidden="true"><use href="#ic-foguete"/></svg>
+          <div>
+            <strong>Como comecar</strong>
+            <p>Toque em “Comecar” e responda uma tela por vez.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--papel)"><use href="#div-onda"/></svg>
+<svg class="div" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="color:var(--faixa)">
+  <use href="#div-onda"></use>
+</svg>
 
-<section class="secao papel">
-  <div class="wrap grid-2" style="align-items:center">
-    <div>
-      <p class="kicker">Para quem é</p>
-      <h2>Feito para quem <span class="marca">já estudou inglês</span> e ainda trava</h2>
-      <p>Este quiz foi pensado para adultos com rotina cheia, trabalho, carreira, empresa ou família, que precisam usar inglês em reuniões, viagens, entrevistas, atendimento e outras situações profissionais.</p>
-    </div>
-    <div class="card">
-      <ul class="lista">
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-pessoas"/></svg><span>Adultos entre 30 e 50 anos que entendem inglês, mas não conseguem usar com naturalidade.</span></li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-agenda"/></svg><span>Pessoas que precisam de um próximo passo prático, sem perder tempo com mais teoria solta.</span></li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-cadeado"/></svg><span>Sem pedir dado pessoal para chegar ao diagnóstico inicial.</span></li>
-      </ul>
-    </div>
+<section class="sec faixa">
+  <div class="wrap">
+    <p class="rotulo">Para quem e este quiz</p>
+    <h2>Adultos que ja estudaram ingles, mas nao conseguem usar o que sabem</h2>
+    <p>Se voce entende parte do idioma, mas trava em reunioes, viagens, entrevistas ou conversas profissionais, este diagnostico foi feito para apontar o tipo de bloqueio que mais pesa hoje — sem enrolacao e sem transformar o resultado em oferta.</p>
   </div>
 </section>
 
 <script>
-const perfis = {
-  travamento: {
-    chave: "travamento",
-    rotulo: "Travado na fala",
-    dor: "Travar na hora de falar inglês mesmo após anos de estudo.",
-    eyebrow: "Você entende inglês, mas trava quando precisa falar?",
-    reconhecimento: "Voce respondeu que travar na hora de falar é o seu principal desafio."
-  },
-  vergonha: {
-    chave: "vergonha",
-    rotulo: "Vergonha de falar",
-    dor: "Sentir vergonha, desconforto e frustração por não conseguir se expressar.",
-    eyebrow: "Falar inglês te deixa desconfortável e frustrado?",
-    reconhecimento: "Voce respondeu que vergonha e frustração aparecem quando tenta se expressar."
-  },
-  traducao: {
-    chave: "traducao",
-    rotulo: "Pensa demais",
-    dor: "Depender de tradução mental e esquecer tudo sob pressão.",
-    eyebrow: "Você monta frases na cabeça, mas trava na hora H?",
-    reconhecimento: "Voce respondeu que depende de tradução mental e isso te faz esquecer tudo sob pressão."
-  },
-  evasivo: {
-    chave: "evasivo",
-    rotulo: "Evita situações",
-    dor: "Evitar reuniões, viagens, entrevistas ou conversas por insegurança.",
-    eyebrow: "Você foge de situações em inglês por insegurança?",
-    reconhecimento: "Voce respondeu que evita reuniões, viagens, entrevistas ou conversas para não se expor."
-  },
-  desacredita: {
-    chave: "desacredita",
-    rotulo: "Sem confiança",
-    dor: "Acreditar que não leva jeito, que passou da idade ou que tem bloqueio.",
-    eyebrow: "Você sente que talvez não leve jeito para falar inglês?",
-    reconhecimento: "Voce respondeu que acredita não levar jeito, ter passado da idade ou ter um bloqueio."
-  },
-  comparacao: {
-    chave: "comparacao",
-    rotulo: "Se compara demais",
-    dor: "Perder confiança ao se comparar com colegas que falam com mais facilidade.",
-    eyebrow: "Ver outras pessoas falando inglês te faz perder a confiança?",
-    reconhecimento: "Voce respondeu que se comparar com colegas mais fluentes faz sua confiança cair."
-  }
-};
+(() => {
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const progressBar = document.getElementById('progressBar');
+  const startBtn = document.getElementById('startBtn');
+  const finalBtn = document.getElementById('finalBtn');
 
-const screens = [
-  "screen-intro","screen-q1","screen-q2","screen-q3","screen-q4","screen-q5","screen-result"
-];
-const questionScreens = ["screen-q1","screen-q2","screen-q3","screen-q4","screen-q5"];
-let current = 0;
-const answers = Array(5).fill(null);
+  const scores = { trava:0, traducao:0, pressao:0, confianca:0 };
+  const answers = {};
+  let currentStep = 0;
 
-const stepLabel = document.getElementById("stepLabel");
-const stepCount = document.getElementById("stepCount");
-const progressBar = document.getElementById("progressBar");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
-const quizNav = document.getElementById("quizNav");
-
-function updateUI(){
-  screens.forEach((id,idx)=>{
-    document.getElementById(id).classList.toggle("active", idx===current);
-  });
-
-  if(current===0){
-    stepLabel.textContent = "Introdução";
-    stepCount.textContent = "0/5";
-    progressBar.style.width = "0%";
-    quizNav.style.display = "none";
-  }else if(current>=1 && current<=5){
-    stepLabel.textContent = "Pergunta " + current;
-    stepCount.textContent = current + "/5";
-    progressBar.style.width = (current/5*100) + "%";
-    quizNav.style.display = "flex";
-    prevBtn.disabled = false;
-    nextBtn.disabled = !answers[current-1];
-    nextBtn.innerHTML = 'Próxima <svg class="ic" aria-hidden="true"><use href="#ic-seta"/></svg>';
-  }else{
-    stepLabel.textContent = "Resultado";
-    stepCount.textContent = "5/5";
-    progressBar.style.width = "100%";
-    quizNav.style.display = "none";
-  }
-}
-
-function show(index){
-  current = index;
-  updateUI();
-  const active = document.querySelector(".screen.active");
-  if(active){
-    const focusable = active.querySelector("button,a");
-    if(focusable) focusable.focus();
-  }
-}
-
-function calcResult(){
-  const tally = {};
-  answers.forEach(a => {
-    tally[a] = (tally[a] || 0) + 1;
-  });
-
-  let winner = answers[0] || "travamento";
-  let max = 0;
-  Object.keys(tally).forEach(k=>{
-    if(tally[k] > max){
-      max = tally[k];
-      winner = k;
+  const perfis = {
+    trava: {
+      nome: 'Perfil: trava de fala',
+      titulo: 'Seu bloqueio principal e travar na hora de falar',
+      t1: 'Voce ja estudou ingles e acumulou conhecimento, mas ele nao vira resposta na hora em que precisa se comunicar. O problema nao parece ser falta de conteudo, e sim dificuldade de transformar o que voce sabe em fala real.',
+      t2: 'Isso costuma aparecer em conversas do trabalho, viagens e situacoes em que voce precisa reagir sem tempo para pensar demais. O foco nao e aprender mais regra, e sim ativar a saida verbal com mais naturalidade.',
+      m: 'Existe um caminho para isso: a <span class="marca">Ponte de fala / processo de ativacao oral guiada</span>, que trabalha a passagem do pensamento para a resposta em ingles de forma mais direta.'
+    },
+    traducao: {
+      nome: 'Perfil: traducao mental',
+      titulo: 'Seu bloqueio principal e depender de traducao mental',
+      t1: 'Seu ingles nao flui porque sua cabeca tenta passar pelo portugues antes de responder. Essa etapa extra deixa a fala lenta, cansativa e fragil em situacoes reais.',
+      t2: 'Quando a conversa acelera, voce perde tempo montando frase, revisando regra e buscando seguranca. O diagnostico aponta menos falta de base e mais excesso de intermediacao mental.',
+      m: 'O caminho aqui passa pela <span class="marca">Ponte de fala / processo de ativacao oral guiada</span>, que treina blocos prontos de comunicacao e respostas de alta frequencia para reduzir essa traducao interna.'
+    },
+    pressao: {
+      nome: 'Perfil: colapso sob pressao',
+      titulo: 'Seu bloqueio principal aparece quando ha pressao',
+      t1: 'Voce entende mais do que consegue mostrar quando precisa responder rapido. Em reunioes, entrevistas ou conversas ao vivo, a pressao derruba o acesso ao que voce ja aprendeu.',
+      t2: 'Isso nao significa falta de capacidade. Significa que seu ingles ainda nao foi treinado para sair com estabilidade em contexto real, com exigencia de resposta imediata.',
+      m: 'Um caminho util para esse perfil e a <span class="marca">Ponte de fala / processo de ativacao oral guiada</span>, com pratica de saida verbal em contextos de pressao controlada.'
+    },
+    confianca: {
+      nome: 'Perfil: bloqueio de confianca',
+      titulo: 'Seu bloqueio principal hoje e a inseguranca para falar',
+      t1: 'O que mais pesa nao e apenas o ingles em si, mas a sensacao de vergonha, comparacao e medo de errar. Isso faz voce evitar situacoes em que poderia praticar e ganhar confianca real.',
+      t2: 'Quando a pessoa acredita que precisa falar perfeito para ser entendida, a fala trava antes mesmo de comecar. O diagnostico mostra que destravar aqui passa por experiencia guiada, nao por cobranca.',
+      m: 'Nesse caso, vale conhecer a <span class="marca">Ponte de fala / processo de ativacao oral guiada</span>, pensada para transformar conhecimento em resposta mais segura e funcional.'
     }
-  });
+  };
 
-  const perfil = perfis[winner];
-  document.getElementById("resultEyebrow").textContent = perfil.eyebrow;
-  document.getElementById("resultTitle").textContent = perfil.rotulo;
-  document.getElementById("resultRecognition").textContent = perfil.reconhecimento;
-  document.getElementById("resultDiagnosis").textContent =
-    "Isso indica um padrão ligado a " + perfil.dor.toLowerCase() + " Em muitos casos, o problema não é falta de estudo, e sim a dificuldade de transformar o inglês que você já conhece em resposta rápida e natural. Quando a pressão aparece, esse bloqueio fica mais visível.";
-  document.getElementById("resultMechanism").innerHTML =
-    'Existe um caminho para isso: <span class="marca">Ponte de fala / processo de ativação oral guiada</span>. Ele foi pensado para treinar o cérebro a passar do pensamento em português para a resposta em inglês de forma mais direta, com blocos prontos de comunicação, padrões de resposta e prática de saída verbal em contextos de pressão controlada.';
+  function updateProgress() {
+    const percents = [16.666, 33.333, 50, 66.666, 83.333, 100];
+    if (currentStep === 0) progressBar.style.width = '16.666%';
+    else progressBar.style.width = percents[currentStep - 0] + '%';
+  }
 
-  const botaoFinal = document.getElementById("finalBtn");
-  const chave = perfil.chave;
-  const destino = 'pagina-de-vendas.html?perfil=' + chave + '&origem=quiz';
-  botaoFinal.setAttribute('href', destino);
-}
+  function showStep(index) {
+    steps.forEach((step, i) => step.classList.toggle('active', i === index));
+    currentStep = index;
+    updateProgress();
+  }
 
-document.querySelectorAll(".options").forEach(group=>{
-  group.querySelectorAll(".option").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      group.querySelectorAll(".option").forEach(o=>o.setAttribute("aria-pressed","false"));
-      btn.setAttribute("aria-pressed","true");
-      const qIndex = Number(group.getAttribute("data-question"));
-      answers[qIndex] = btn.getAttribute("data-perfil");
-      if(current>=1 && current<=5){
+  function setupQuestionStep(stepEl, stepIndex) {
+    const options = Array.from(stepEl.querySelectorAll('.option'));
+    const nextBtn = stepEl.querySelector('.next');
+    const backBtn = stepEl.querySelector('.back');
+
+    options.forEach((btn, optIndex) => {
+      btn.addEventListener('click', () => {
+        options.forEach(o => o.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        answers[stepIndex] = {
+          key: btn.dataset.group,
+          value: Number(btn.dataset.value || 1),
+          index: optIndex
+        };
         nextBtn.disabled = false;
+      });
+    });
+
+    backBtn.addEventListener('click', () => {
+      showStep(stepIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (!answers[stepIndex]) return;
+      if (stepIndex < 5) {
+        showStep(stepIndex + 1);
+      } else {
+        renderResult();
+        showStep(6);
       }
     });
-  });
-});
-
-document.getElementById("startBtn").addEventListener("click", ()=>show(1));
-document.getElementById("startInside").addEventListener("click", ()=>show(1));
-
-prevBtn.addEventListener("click", ()=>{
-  if(current > 1) show(current - 1);
-  else show(0);
-});
-
-nextBtn.addEventListener("click", ()=>{
-  if(current >=1 && current <=4){
-    show(current + 1);
-  }else if(current === 5){
-    calcResult();
-    show(6);
   }
-});
 
-updateUI();
+  function renderResult() {
+    Object.keys(scores).forEach(k => scores[k] = 0);
+    Object.keys(answers).forEach(k => {
+      const ans = answers[k];
+      if (ans && scores[ans.key] !== undefined) scores[ans.key] += ans.value;
+    });
+
+    const ordem = ['trava','traducao','pressao','confianca'];
+    let chave = ordem[0];
+    ordem.forEach(k => {
+      if (scores[k] > scores[chave]) chave = k;
+    });
+
+    const perfil = perfis[chave];
+    document.getElementById('perfilNome').textContent = perfil.nome;
+    document.getElementById('perfilTitulo').textContent = perfil.titulo;
+    document.getElementById('perfilTexto1').textContent = perfil.t1;
+    document.getElementById('perfilTexto2').textContent = perfil.t2;
+    document.getElementById('mecanismoTexto').innerHTML = perfil.m;
+
+    const destino = 'pagina-de-vendas.html?perfil=' + chave + '&origem=quiz';
+    finalBtn.setAttribute('href', destino);
+  }
+
+  startBtn.addEventListener('click', () => showStep(1));
+
+  steps.forEach((step, i) => {
+    if (i >= 1 && i <= 5) setupQuestionStep(step, i);
+  });
+
+  updateProgress();
+})();
 </script>
 </body>
 </html>
