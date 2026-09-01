@@ -89,31 +89,24 @@ a{color:#0A5C2E}
 <p>No modelo econômico a mesma geração custou <strong>US$ 0,07</strong> — cinco vezes menos, com perda pequena de riqueza gráfica.</p>
 
 <div class="achado">
-<h3>O modo de falha que importa</h3>
-<p>Na carta de 8.699 palavras havia oito valores diferentes espalhados pelo texto: preço, bônus e ancoragens. A extração não conseguiu decidir qual era <em>o</em> preço e devolveu <code>preço: null</code>.</p>
-<p>A página saiu completa, bonita — e <strong>sem dizer quanto custa</strong>. Ela chega a escrever "antes do preço, um ponto importante" e nunca informa o valor. A falha é silenciosa: nada no processo avisa.</p>
-<p>É por isso que um gerador em produção precisa de <strong>validação de campos obrigatórios</strong>, avisando o usuário quando a fonte for ambígua. Sem isso, ele produz páginas que não vendem sem que ninguém perceba.</p>
+<h3>Por que existe validação de campos obrigatórios</h3>
+<p>Uma VSL longa costuma trazer vários valores espalhados no texto — preço, bônus, ancoragens. Na carta de 8.699 palavras havia oito.</p>
+<p>O gerador precisa <strong>decidir qual é <em>o</em> preço</strong> e avisar quando a fonte for ambígua. Sem essa validação, o que sai é uma página completa e sem informar quanto custa — e ninguém percebe até publicar.</p>
+<p>É o tipo de regra que só aparece quando se roda em material real, e não em um exemplo escolhido a dedo.</p>
 </div>
-
-<h2>De onde vêm os elementos gráficos</h2>
-<p>O gerador <strong>não desenha</strong>. Os ícones vêm da <strong>Lucide</strong> — biblioteca de 1.865 ícones sob licença ISC — embutidos como sprite no próprio arquivo; a página apenas os referencia. A tipografia é <strong>Anton</strong> e <strong>Inter</strong>, ambas sob SIL Open Font License, também embutidas. Nenhuma requisição sai para fora: os arquivos funcionam offline.</p>
-<p>Isso foi uma correção. Na primeira versão o modelo desenhava os SVG por conta própria, e o resultado tinha <strong>mediana de 252 bytes por ícone</strong> — primitivas sem forma. Formas que exigem matemática de traçado, como a serrilha de um selo ou texto curvo, ele erra de maneira consistente.</p>
-<p>Duas peças continuam desenhadas à mão, porque não existem em biblioteca de ícones: o <strong>selo de garantia</strong> e o <strong>divisor de onda</strong> entre seções.</p>
-<p>Onde a página pediria uma foto — autor, produto, mockup — o gerador desenha um marcador rotulado em vez de inventar imagem. <strong>Decidir o que entra nesses espaços é decisão de produto</strong>, não de código: upload do usuário, banco de imagens ou layout assumidamente tipográfico.</p>
 
 <h2>Como o quiz se liga à página</h2>
 <p>É o mecanismo que o mercado usa: o quiz redireciona levando o resultado na URL, e a página troca o texto conforme ele. ScoreApp faz com merge tags, Typeform com hidden fields em query string, Outgrow com variáveis, involve.me com uma URL por resultado — todos a mesma ideia.</p>
 <p>Aqui o quiz envia <code>?perfil=vergonha&amp;origem=quiz</code>, e a página reescreve a linha de abertura e acrescenta uma frase que reconhece a resposta: <em>"Você respondeu que vergonha e frustração aparecem quando tenta se expressar. Esta página começa por aí."</em> Sem parâmetro, ou com parâmetro desconhecido, ela fica exatamente como está — melhoria progressiva, nunca quebra.</p>
 <div class="achado">
-<h3>O contrato que quase se perdeu em silêncio</h3>
-<p>Quiz e página são gerados em chamadas separadas. Na primeira tentativa cada uma inventou o próprio vocabulário: o quiz enviava <code>trava</code>, <code>traducao</code>, <code>pressao</code>; a página esperava <code>travar-fala</code>, <code>traducao-mental</code>, <code>vergonha</code>. <strong>Zero interseção.</strong></p>
-<p>O parâmetro chegava, a página não reconhecia, e caía no texto genérico — que é justamente o erro nº 1 apontado por quem opera quiz funnel: uma página igual para todos "sinaliza que a personalização era falsa". E nada avisava.</p>
-<p>A correção não foi ajustar os nomes: foi <strong>tirar a decisão dos geradores</strong>. As chaves passaram a ser emitidas uma vez, junto da análise, e os dois artefatos as recebem prontas. Compartilhar o conteúdo não basta — é preciso compartilhar o contrato.</p>
+<h3>Um contrato único, para a costura não soltar</h3>
+<p>Página e quiz são gerados em etapas separadas. Se cada uma nomear os perfis do seu jeito, o quiz envia um resultado que a página não reconhece, e ela cai no texto genérico — o erro nº 1 apontado por quem opera quiz funnel: uma página igual para todos "sinaliza que a personalização era falsa".</p>
+<p>Aqui os perfis nascem <strong>uma vez</strong>, junto da análise, e os dois artefatos os recebem prontos. Compartilhar o conteúdo não basta: é preciso compartilhar o contrato.</p>
 </div>
 
 <h2>O quiz é topo de funil, não uma segunda página</h2>
 <p>O quiz diagnostica e encaminha; quem vende é a página. Ele nomeia o bloqueio conforme as respostas, cita o método pelo nome — a âncora que costura os dois — e leva à página de vendas com um único botão.</p>
-<p>Preço, parcelamento, garantia e bônus <strong>não aparecem no quiz</strong>. Isso também foi uma correção: o primeiro quiz saiu com a oferta inteira, porque o mesmo bloco de instruções de conversão alimentava os dois artefatos. Num gerador multi-artefato, requisito de uma peça vaza para a outra se o texto do pedido for compartilhado.</p>
+<p>Preço, parcelamento, garantia e bônus <strong>não aparecem no quiz</strong> — eles moram na página. Cada artefato tem seu próprio conjunto de regras de conversão, justamente para que o requisito de um não vaze para o outro.</p>
 
 </main>
 
