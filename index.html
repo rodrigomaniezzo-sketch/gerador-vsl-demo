@@ -16,7 +16,7 @@ body{margin:0;background:var(--papel);color:var(--tinta);font:400 17px/1.62 'Cor
 h1,h2,h3{font-family:'Display',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.01em;line-height:1}
 h1{font-size:clamp(2.3rem,6.2vw,4rem);margin:.1em 0 .3em}
 h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:2.6em 0 .7em}
-.marca{background:linear-gradient(transparent 56%,var(--realce) 56%);padding:0 .1em}
+.marca{background-image:linear-gradient(var(--realce),var(--realce));background-repeat:no-repeat;background-size:100% .30em;background-position:0 .76em;padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .topo{border-bottom:3px solid var(--tinta);padding:44px 0 34px}
 .eyebrow{font:700 .76rem/1.4 'Corpo',sans-serif;text-transform:uppercase;letter-spacing:.14em;color:#555;margin:0}
 .lead{font-size:1.17rem;max-width:64ch;color:#333}
@@ -51,7 +51,7 @@ a{color:#0A5C2E}
 <header class="topo"><div class="wrap">
 <p class="eyebrow">Demonstração técnica &middot; setembro de 2026</p>
 <h1>Uma VSL entra.<br>Uma <span class="marca">página de vendas</span><br>e um quiz saem.</h1>
-<p class="lead">Os dois artefatos nascem da <strong>mesma análise estruturada</strong> — por isso falam do mesmo público, das mesmas dores e levam à mesma oferta. Tudo abaixo foi gerado automaticamente; nada foi editado à mão.</p>
+<p class="lead">Os dois artefatos nascem da <strong>mesma análise estruturada</strong> — por isso falam do mesmo público e das mesmas dores. O quiz diagnostica e encaminha; a página vende. Tudo abaixo foi gerado automaticamente; nada foi editado à mão.</p>
 <ul class="nums">
 <li><b>45s</b><span>da VSL aos dois arquivos prontos</span></li>
 <li><b>US$&nbsp;0,07</b><span>por geração completa, no modelo econômico</span></li>
@@ -70,7 +70,7 @@ a{color:#0A5C2E}
 <p>Promessa, público, dores, desejos, mecanismo, oferta, objeções e chamada — um só JSON. É ele que garante a coerência.</p>
 <a class="btn sec" href="analise.json">Ver o JSON</a></li>
 <li class="card"><span class="n">3</span><h3>Os dois artefatos</h3>
-<p>Página de vendas long-form com 16 blocos e quiz de 5 perguntas com resultado personalizado.</p>
+<p>Página de vendas long-form com 16 blocos, e quiz de 5 perguntas que termina num diagnóstico e leva à página.</p>
 <a class="btn" href="pagina-de-vendas.html">Abrir a página</a>
 <a class="btn" href="quiz.html" style="margin-top:9px">Abrir o quiz</a></li>
 </ul>
@@ -95,14 +95,22 @@ a{color:#0A5C2E}
 <p>É por isso que um gerador em produção precisa de <strong>validação de campos obrigatórios</strong>, avisando o usuário quando a fonte for ambígua. Sem isso, ele produz páginas que não vendem sem que ninguém perceba.</p>
 </div>
 
-<h2>Sobre os elementos gráficos</h2>
-<p>Cada página traz de 24 a 39 ícones, selos e divisores — todos desenhados em SVG dentro do próprio arquivo, e a tipografia vai embutida. Nenhuma requisição sai para fora: os arquivos funcionam offline, num pendrive ou hospedados em qualquer lugar.</p>
+<h2>De onde vêm os elementos gráficos</h2>
+<p>O gerador <strong>não desenha</strong>. Os ícones vêm da <strong>Lucide</strong> — biblioteca de 1.865 ícones sob licença ISC — embutidos como sprite no próprio arquivo; a página apenas os referencia. A tipografia é <strong>Anton</strong> e <strong>Inter</strong>, ambas sob SIL Open Font License, também embutidas. Nenhuma requisição sai para fora: os arquivos funcionam offline.</p>
+<p>Isso foi uma correção. Na primeira versão o modelo desenhava os SVG por conta própria, e o resultado tinha <strong>mediana de 252 bytes por ícone</strong> — primitivas sem forma. Formas que exigem matemática de traçado, como a serrilha de um selo ou texto curvo, ele erra de maneira consistente.</p>
+<p>Duas peças continuam desenhadas à mão, porque não existem em biblioteca de ícones: o <strong>selo de garantia</strong> e o <strong>divisor de onda</strong> entre seções.</p>
 <p>Onde a página pediria uma foto — autor, produto, mockup — o gerador desenha um marcador rotulado em vez de inventar imagem. <strong>Decidir o que entra nesses espaços é decisão de produto</strong>, não de código: upload do usuário, banco de imagens ou layout assumidamente tipográfico.</p>
+
+<h2>O quiz é topo de funil, não uma segunda página</h2>
+<p>O quiz diagnostica e encaminha; quem vende é a página. Ele nomeia o bloqueio conforme as respostas, cita o método pelo nome — a âncora que costura os dois — e leva à página de vendas com um único botão.</p>
+<p>Preço, parcelamento, garantia e bônus <strong>não aparecem no quiz</strong>. Isso também foi uma correção: o primeiro quiz saiu com a oferta inteira, porque o mesmo bloco de instruções de conversão alimentava os dois artefatos. Num gerador multi-artefato, requisito de uma peça vaza para a outra se o texto do pedido for compartilhado.</p>
+
 </main>
 
 <footer class="nota"><div class="wrap">
 <p><strong>Demonstração técnica.</strong> O produto "Destrave" e sua oferta são fictícios, criados para este teste. Nenhum pagamento é processado e os botões não levam a lugar nenhum.</p>
 <p>As outras quatro cartas usadas na medição são páginas de vendas reais e públicas. Elas serviram apenas como entrada do teste — os resultados não são publicados aqui, porque a copy é de seus autores.</p>
+<p><strong>Licenças.</strong> Ícones: Lucide, ISC. Tipografia: Anton e Inter, SIL Open Font License 1.1. Os avisos de copyright acompanham cada arquivo gerado, como as licenças exigem.</p>
 </div></footer>
 
 </body></html>
