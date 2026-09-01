@@ -1,0 +1,90 @@
+{
+  "promessa_central": "Fazer o adulto que já estudou inglês destravar a fala e conseguir se comunicar com naturalidade na vida real, sem depender de tradução mental e sem congelar na hora de falar.",
+  "publico_alvo": {
+    "quem": "Adultos que já estudaram inglês, entendem o idioma, mas travam na hora de falar.",
+    "faixa": "30 a 50 anos",
+    "contexto": "Pessoas com rotina cheia, trabalho, carreira, empresa ou família, que precisam usar inglês em reuniões, viagens, entrevistas, atendimento e situações profissionais."
+  },
+  "dores": [
+    "Travar na hora de falar inglês mesmo após anos de estudo.",
+    "Sentir vergonha, desconforto e frustração por não conseguir se expressar.",
+    "Depender de tradução mental e esquecer tudo sob pressão.",
+    "Evitar reuniões, viagens, entrevistas ou conversas por insegurança.",
+    "Acreditar que não leva jeito, que passou da idade ou que tem bloqueio.",
+    "Perder confiança ao se comparar com colegas que falam com mais facilidade."
+  ],
+  "desejos": [
+    "Falar inglês com naturalidade e sem montar frase na cabeça.",
+    "Participar de reuniões sem medo de ser chamado.",
+    "Viajar sem depender do Google Tradutor para tudo.",
+    "Atender clientes estrangeiros e fazer entrevistas com segurança.",
+    "Responder rapidamente em conversas reais do trabalho e do dia a dia.",
+    "Ser entendido sem precisar ser perfeito e ganhar confiança ao falar."
+  ],
+  "mecanismo_unico": {
+    "nome": "Ponte de fala / processo de ativação oral guiada",
+    "como_funciona": "Treina o cérebro a passar do pensamento em português para a resposta em inglês de forma mais direta, usando blocos prontos de comunicação, padrões de resposta, gatilhos de sentença, estruturas de alta frequência e prática de saída verbal em contextos de pressão controlada.",
+    "por_que_diferente": "Porque não foca em estudar mais conteúdo, traduzir ou decorar regras, e sim em transformar o inglês que a pessoa já conhece em resposta automática na hora da fala."
+  },
+  "beneficios": [
+    "Transformar conhecimento acumulado em fala real.",
+    "Parar de depender da tradução mental o tempo todo.",
+    "Responder com mais rapidez, segurança e clareza.",
+    "Treinar situações reais de trabalho, viagem, reunião e networking.",
+    "Estudar em aulas curtas e objetivas que cabem na rotina.",
+    "Ganhar confiança a partir da prática de fala, sem exigir perfeição."
+  ],
+  "solucao": {
+    "nome_produto": "Destrave",
+    "formato": "Curso/método online",
+    "o_que_inclui": [
+      "Aulas curtas e objetivas com foco em fala, escuta ativa e resposta rápida.",
+      "Treinamento guiado para parar de depender de tradução mental.",
+      "Prática com situações reais do dia a dia profissional.",
+      "Revisão inteligente para fixação do conteúdo.",
+      "Formato progressivo que respeita o nível e a agenda do aluno.",
+      "Pacote extra de frases de sobrevivência para reuniões, viagens e apresentações.",
+      "Guia de treino de 21 dias para criar consistência.",
+      "Módulo de pronúncia funcional e destravador de pensamento rápido."
+    ]
+  },
+  "oferta": {
+    "preco": "12 parcelas de R$ 49,70 ou R$ 497 à vista",
+    "ancoragem": null,
+    "bonus": [
+      "Pacote extra de frases de sobrevivência para reuniões, viagens e apresentações.",
+      "Guia de treino de 21 dias para criar consistência sem depender de motivação.",
+      "Módulo focado em pronúncia funcional.",
+      "Destravador de pensamento rápido com exercícios para parar de traduzir mentalmente."
+    ],
+    "garantia": "Garantia de 7 dias com reembolso.",
+    "urgencia": "Comece hoje mesmo."
+  },
+  "objecoes": [
+    {
+      "objecao": "Já ouvi isso antes e já investi em outros métodos sem resultado.",
+      "resposta": "O problema pode não ser falta de esforço, mas sim o formato errado de aprendizado. O Destrave muda a engenharia do aprendizado para treinar a fala de verdade."
+    },
+    {
+      "objecao": "Sou muito velho para aprender a falar inglês.",
+      "resposta": "Adultos aprendem de forma diferente, com lógica, aplicação prática, autonomia e resultado rápido. O método foi criado especificamente para adultos."
+    },
+    {
+      "objecao": "Não tenho tempo.",
+      "resposta": "O método foi organizado para encaixar na rotina, com aulas curtas e estudo com intenção, sem precisar de horas por dia."
+    },
+    {
+      "objecao": "Não tenho base suficiente.",
+      "resposta": "Se a pessoa já estudou inglês antes, a base existe. O método reconecta esse conhecimento à fala. Não é indicado para absoluto iniciante."
+    },
+    {
+      "objecao": "Tenho vergonha de passar ridículo ao tentar falar.",
+      "resposta": "Continuar evitando custa mais caro para a carreira e para as oportunidades do que encarar um processo pensado para trabalhar essa trava."
+    }
+  ],
+  "cta": {
+    "texto_botao": "Clique agora no botão",
+    "acao": "Fazer a inscrição no Destrave e começar hoje mesmo."
+  },
+  "tom": "Direto, empático, encorajador e voltado para adultos frustrados com métodos tradicionais."
+}
